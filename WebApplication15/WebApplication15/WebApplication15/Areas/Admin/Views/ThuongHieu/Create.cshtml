@@ -1,0 +1,26 @@
+@model WebApplication15.Models.ThuongHieu
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>? Thêm thýõng hi?u m?i</h2>
+
+@using (Html.BeginForm("Create", "ThuongHieu", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Tên Thýõng Hi?u</label>
+        @Html.TextBoxFor(m => m.TenTH, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label>Qu?c Gia</label>
+        @Html.TextBoxFor(m => m.QuocGia, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">?? Lýu</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">? H?y</a>
+    </div>
+}
