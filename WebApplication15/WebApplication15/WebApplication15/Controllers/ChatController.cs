@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 public class ChatController : Controller
 {
-    private readonly string apiKey = "nhap api_key";
+    private readonly string apiKey = "";
 
     public ActionResult ChatAI()
     {
