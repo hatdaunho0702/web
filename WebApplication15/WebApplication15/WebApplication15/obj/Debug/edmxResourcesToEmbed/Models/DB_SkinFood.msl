@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DB_SkinFood1ModelStoreContainer" CdmEntityContainer="DB_SkinFood1Entities">
+  <EntityContainerMapping StorageEntityContainer="DB_SkinFoodModelStoreContainer" CdmEntityContainer="DB_SkinFoodEntities">
     <EntitySetMapping Name="ChiTietDonHangs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.ChiTietDonHang">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.ChiTietDonHang">
         <MappingFragment StoreEntitySet="ChiTietDonHangs">
           <ScalarProperty Name="MaDH" ColumnName="MaDH" />
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhGias">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.DanhGia">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.DanhGia">
         <MappingFragment StoreEntitySet="DanhGia">
           <ScalarProperty Name="MaDG" ColumnName="MaDG" />
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhMucs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.DanhMuc">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.DanhMuc">
         <MappingFragment StoreEntitySet="DanhMuc">
           <ScalarProperty Name="MaDM" ColumnName="MaDM" />
           <ScalarProperty Name="TenDM" ColumnName="TenDM" />
@@ -35,7 +35,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DonHangs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.DonHang">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.DonHang">
         <MappingFragment StoreEntitySet="DonHang">
           <ScalarProperty Name="MaDH" ColumnName="MaDH" />
           <ScalarProperty Name="MaND" ColumnName="MaND" />
@@ -48,20 +48,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LienHes">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.LienHe">
-        <MappingFragment StoreEntitySet="LienHe">
-          <ScalarProperty Name="MaLH" ColumnName="MaLH" />
-          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
-          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
-          <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LoaiSPs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.LoaiSP">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.LoaiSP">
         <MappingFragment StoreEntitySet="LoaiSP">
           <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
           <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
@@ -70,7 +58,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NguoiDungs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.NguoiDung">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.NguoiDung">
         <MappingFragment StoreEntitySet="NguoiDung">
           <ScalarProperty Name="MaND" ColumnName="MaND" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -83,7 +71,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NhapHangs">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.NhapHang">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.NhapHang">
         <MappingFragment StoreEntitySet="NhapHang">
           <ScalarProperty Name="MaNhap" ColumnName="MaNhap" />
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -96,7 +84,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SanPhams">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.SanPham">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.SanPham">
         <MappingFragment StoreEntitySet="SanPham">
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
           <ScalarProperty Name="TenSP" ColumnName="TenSP" />
@@ -123,7 +111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaiKhoans">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.TaiKhoan">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
           <ScalarProperty Name="MaTK" ColumnName="MaTK" />
           <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
@@ -134,7 +122,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ThuocTinhMyPhams">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.ThuocTinhMyPham">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.ThuocTinhMyPham">
         <MappingFragment StoreEntitySet="ThuocTinhMyPham">
           <ScalarProperty Name="MaThuocTinh" ColumnName="MaThuocTinh" />
           <ScalarProperty Name="TenThuocTinh" ColumnName="TenThuocTinh" />
@@ -144,7 +132,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ThuongHieux">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.ThuongHieu">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.ThuongHieu">
         <MappingFragment StoreEntitySet="ThuongHieu">
           <ScalarProperty Name="MaTH" ColumnName="MaTH" />
           <ScalarProperty Name="TenTH" ColumnName="TenTH" />
@@ -153,7 +141,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="XuatKhoes">
-      <EntityTypeMapping TypeName="DB_SkinFood1Model.XuatKho">
+      <EntityTypeMapping TypeName="DB_SkinFoodModel.XuatKho">
         <MappingFragment StoreEntitySet="XuatKho">
           <ScalarProperty Name="MaXuat" ColumnName="MaXuat" />
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -164,7 +152,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="SanPham_ThuocTinh" TypeName="DB_SkinFood1Model.SanPham_ThuocTinh" StoreEntitySet="SanPham_ThuocTinh">
+    <AssociationSetMapping Name="SanPham_ThuocTinh" TypeName="DB_SkinFoodModel.SanPham_ThuocTinh" StoreEntitySet="SanPham_ThuocTinh">
       <EndProperty Name="ThuocTinhMyPham">
         <ScalarProperty Name="MaThuocTinh" ColumnName="MaThuocTinh" />
       </EndProperty>
@@ -172,5 +160,10 @@
         <ScalarProperty Name="MaSP" ColumnName="MaSP" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_CapNhatTonKho" FunctionName="DB_SkinFoodModel.Store.sp_CapNhatTonKho" />
+    <FunctionImportMapping FunctionImportName="sp_DuyetDanhGia" FunctionName="DB_SkinFoodModel.Store.sp_DuyetDanhGia" />
+    <FunctionImportMapping FunctionImportName="sp_ThanhToanDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThanhToanDonHang" />
+    <FunctionImportMapping FunctionImportName="sp_ThemDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThemDonHang" />
+    <FunctionImportMapping FunctionImportName="sp_ThemSanPham" FunctionName="DB_SkinFoodModel.Store.sp_ThemSanPham" />
   </EntityContainerMapping>
 </Mapping>

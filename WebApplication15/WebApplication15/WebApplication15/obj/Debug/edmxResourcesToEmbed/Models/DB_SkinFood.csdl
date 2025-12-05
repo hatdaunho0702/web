@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB_SkinFood1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DB_SkinFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="ChiTietDonHang">
     <Key>
       <PropertyRef Name="MaDH" />
@@ -51,17 +51,6 @@
     <Property Name="PhuongThucThanhToan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDon__MaDH__5535A963" FromRole="DonHang" ToRole="ChiTietDonHangs" />
     <NavigationProperty Name="NguoiDung" Relationship="Self.FK__DonHang__MaND__52593CB8" FromRole="DonHang" ToRole="NguoiDung" />
-  </EntityType>
-  <EntityType Name="LienHe">
-    <Key>
-      <PropertyRef Name="MaLH" />
-    </Key>
-    <Property Name="MaLH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="NoiDung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="NgayGui" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="LoaiSP">
     <Key>
@@ -325,12 +314,11 @@
     <End Role="ThuocTinhMyPham" Type="Self.ThuocTinhMyPham" Multiplicity="*" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="DB_SkinFood1Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_SkinFoodEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
     <EntitySet Name="DanhGias" EntityType="Self.DanhGia" />
     <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
     <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
-    <EntitySet Name="LienHes" EntityType="Self.LienHe" />
     <EntitySet Name="LoaiSPs" EntityType="Self.LoaiSP" />
     <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
     <EntitySet Name="NhapHangs" EntityType="Self.NhapHang" />
@@ -391,5 +379,31 @@
       <End Role="ThuocTinhMyPham" EntitySet="ThuocTinhMyPhams" />
       <End Role="SanPham" EntitySet="SanPhams" />
     </AssociationSet>
+    <FunctionImport Name="sp_CapNhatTonKho">
+      <Parameter Name="MaSP" Mode="In" Type="Int32" />
+      <Parameter Name="SoLuongNhap" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DuyetDanhGia">
+      <Parameter Name="MaDG" Mode="In" Type="Int32" />
+      <Parameter Name="TraLoi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThanhToanDonHang">
+      <Parameter Name="MaDH" Mode="In" Type="Int32" />
+      <Parameter Name="PhuongThuc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemDonHang">
+      <Parameter Name="MaND" Mode="In" Type="Int32" />
+      <Parameter Name="MaSP" Mode="In" Type="Int32" />
+      <Parameter Name="SoLuong" Mode="In" Type="Int32" />
+      <Parameter Name="DiaChiGiaoHang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemSanPham">
+      <Parameter Name="TenSP" Mode="In" Type="String" />
+      <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+      <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
+      <Parameter Name="MaDM" Mode="In" Type="Int32" />
+      <Parameter Name="MaTH" Mode="In" Type="Int32" />
+      <Parameter Name="MaLoai" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

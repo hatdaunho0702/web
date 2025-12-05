@@ -178,9 +178,7 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\LienHe.cs">
-      <DependentUpon>DB_SkinFood.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\LienHe.cs" />
     <Compile Include="Models\LoaiSP.cs">
       <DependentUpon>DB_SkinFood.tt</DependentUpon>
     </Compile>
@@ -271,13 +269,6 @@
     <Content Include="Areas\Admin\Views\LoaiSP\CreateLoaiSP.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSP\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <EntityDeploy Include="Models\DB_SkinFood.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_SkinFood.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DB_SkinFood.edmx.diagram">
-      <DependentUpon>DB_SkinFood.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\LienHes\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LienHes\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\LienHes\Details.cshtml" />
@@ -288,6 +279,13 @@
     <Content Include="Areas\Admin\Views\DanhGias\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DanhGias\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DanhGias\Index.cshtml" />
+    <EntityDeploy Include="Models\DB_SkinFood.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_SkinFood.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DB_SkinFood.edmx.diagram">
+      <DependentUpon>DB_SkinFood.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

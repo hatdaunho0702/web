@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB_SkinFood1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DB_SkinFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="ChiTietDonHangs">
     <Key>
       <PropertyRef Name="MaDH" />
@@ -43,17 +43,6 @@
     <Property Name="TrangThaiThanhToan" Type="nvarchar" MaxLength="50" />
     <Property Name="NgayThanhToan" Type="datetime" />
     <Property Name="PhuongThucThanhToan" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="LienHe">
-    <Key>
-      <PropertyRef Name="MaLH" />
-    </Key>
-    <Property Name="MaLH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" />
-    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
-    <Property Name="NoiDung" Type="nvarchar" MaxLength="1000" />
-    <Property Name="NgayGui" Type="datetime" />
   </EntityType>
   <EntityType Name="LoaiSP">
     <Key>
@@ -329,12 +318,46 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB_SkinFood1ModelStoreContainer">
+  <Function Name="fn_DiemTrungBinhSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_TongTienTheoDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+    <Parameter Name="MaDH" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_TongTienTheoKhachHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+    <Parameter Name="MaND" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_CapNhatTonKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+    <Parameter Name="SoLuongNhap" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DuyetDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaDG" Type="int" Mode="In" />
+    <Parameter Name="TraLoi" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ThanhToanDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaDH" Type="int" Mode="In" />
+    <Parameter Name="PhuongThuc" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ThemDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaND" Type="int" Mode="In" />
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+    <Parameter Name="SoLuong" Type="int" Mode="In" />
+    <Parameter Name="DiaChiGiaoHang" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ThemSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+    <Parameter Name="SoLuongTon" Type="int" Mode="In" />
+    <Parameter Name="MaDM" Type="int" Mode="In" />
+    <Parameter Name="MaTH" Type="int" Mode="In" />
+    <Parameter Name="MaLoai" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB_SkinFoodModelStoreContainer">
     <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHangs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LienHe" EntityType="Self.LienHe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiSP" EntityType="Self.LoaiSP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhapHang" EntityType="Self.NhapHang" Schema="dbo" store:Type="Tables" />

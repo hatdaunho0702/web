@@ -11,14 +11,29 @@ namespace WebApplication15.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("LienHe")]
     public partial class LienHe
     {
+        [Key]
         public int MaLH { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string HoTen { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string Email { get; set; }
+
+        [StringLength(20)]
         public string SoDienThoai { get; set; }
+
+        [Required]
         public string NoiDung { get; set; }
-        public Nullable<System.DateTime> NgayGui { get; set; }
+
+        public DateTime? NgayGui { get; set; }
     }
 }

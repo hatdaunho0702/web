@@ -1,0 +1,277 @@
+﻿-- ==================================================================================
+-- SCRIPT CẬP NHẬT DATABASE DB_SkinFood1 TỪ SCHEMA CŨ SANG SCHEMA MỚI
+-- ==================================================================================
+
+USE DB_SkinFood1;
+GO
+
+-- ==================================================================================
+-- 0. KIỂM TRA VÀ KHÔI PHỤC BẢNG DanhMuc (QUAN TRỌNG!)
+-- ==================================================================================
+
+PRINT N'🔧 Kiểm tra bảng DanhMuc...';
+
+IF OBJECT_ID('DanhMuc', 'U') IS NULL
+BEGIN
+    PRINT N'⚠️ Bảng DanhMuc không tồn tại! Đang tạo lại...';
+    
+    CREATE TABLE DanhMuc (
+        MaDM INT PRIMARY KEY IDENTITY(1,1),
+        TenDM NVARCHAR(100) NOT NULL
+    );
+    
+    PRINT N'✅ Đã tạo lại bảng DanhMuc';
+END
+ELSE
+BEGIN
+    PRINT N'✅ Bảng DanhMuc đã tồn tại';
+END
+GO
+
+-- Khôi phục dữ liệu DanhMuc
+SET IDENTITY_INSERT DanhMuc ON;
+GO
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 1)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (1, N'Mỹ phẩm chăm sóc da mặt');
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 2)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (2, N'Mỹ phẩm trang điểm');
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 3)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (3, N'Mỹ phẩm tóc');
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 4)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (4, N'Dược phẩm');
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 5)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (5, N'Mỹ phẩm chăm sóc cơ thể');
+
+IF NOT EXISTS (SELECT 1 FROM DanhMuc WHERE MaDM = 6)
+    INSERT INTO DanhMuc (MaDM, TenDM) VALUES (6, N'Nước hoa và phụ kiện');
+
+SET IDENTITY_INSERT DanhMuc OFF;
+GO
+
+PRINT N'✅ Đã khôi phục dữ liệu DanhMuc';
+GO
+
+-- ==================================================================================
+-- 1. KIỂM TRA VÀ CẬP NHẬT CẤU TRÚC BẢNG DonHang
+-- ==================================================================================
+
+-- Thêm cột TrangThaiThanhToan nếu chưa có
+IF COL_LENGTH('DonHang', 'TrangThaiThanhToan') IS NULL
+BEGIN
+    ALTER TABLE DonHang 
+    ADD TrangThaiThanhToan NVARCHAR(50) DEFAULT N'Chưa thanh toán';
+    PRINT N'✅ Đã thêm cột TrangThaiThanhToan vào bảng DonHang';
+END
+ELSE
+BEGIN
+    PRINT N'ℹ️ Cột TrangThaiThanhToan đã tồn tại';
+END
+GO
+
+-- Thêm cột NgayThanhToan nếu chưa có
+IF COL_LENGTH('DonHang', 'NgayThanhToan') IS NULL
+BEGIN
+    ALTER TABLE DonHang 
+    ADD NgayThanhToan DATETIME NULL;
+    PRINT N'✅ Đã thêm cột NgayThanhToan vào bảng DonHang';
+END
+ELSE
+BEGIN
+    PRINT N'ℹ️ Cột NgayThanhToan đã tồn tại';
+END
+GO
+
+-- Thêm cột PhuongThucThanhToan nếu chưa có
+IF COL_LENGTH('DonHang', 'PhuongThucThanhToan') IS NULL
+BEGIN
+    ALTER TABLE DonHang 
+    ADD PhuongThucThanhToan NVARCHAR(100) NULL;
+    PRINT N'✅ Đã thêm cột PhuongThucThanhToan vào bảng DonHang';
+END
+ELSE
+BEGIN
+    PRINT N'ℹ️ Cột PhuongThucThanhToan đã tồn tại';
+END
+GO
+
+-- ==================================================================================
+-- 2. KIỂM TRA VÀ ĐỔI TÊN BẢNG ChiTietDonHang → ChiTietDonHangs (NẾU CẦN)
+-- ==================================================================================
+
+IF OBJECT_ID('ChiTietDonHang', 'U') IS NOT NULL AND OBJECT_ID('ChiTietDonHangs', 'U') IS NULL
+BEGIN
+    -- Đổi tên bảng
+    EXEC sp_rename 'ChiTietDonHang', 'ChiTietDonHangs';
+    PRINT N'✅ Đã đổi tên bảng ChiTietDonHang → ChiTietDonHangs';
+END
+ELSE IF OBJECT_ID('ChiTietDonHangs', 'U') IS NOT NULL
+BEGIN
+    PRINT N'ℹ️ Bảng ChiTietDonHangs đã tồn tại';
+END
+ELSE
+BEGIN
+    PRINT N'⚠️ Cảnh báo: Không tìm thấy bảng ChiTietDonHang hoặc ChiTietDonHangs';
+END
+GO
+
+-- ==================================================================================
+-- 3. KIỂM TRA VÀ TẠO BẢNG LienHe (NẾU CHƯA CÓ)
+-- ==================================================================================
+
+IF OBJECT_ID('LienHe', 'U') IS NULL
+BEGIN
+    CREATE TABLE LienHe (
+        MaLH INT PRIMARY KEY IDENTITY(1,1),
+        HoTen NVARCHAR(100) NOT NULL,
+        Email NVARCHAR(100) NOT NULL,
+        SoDienThoai NVARCHAR(20),
+        NoiDung NVARCHAR(MAX) NOT NULL,
+        NgayGui DATETIME DEFAULT GETDATE()
+    );
+    PRINT N'✅ Đã tạo bảng LienHe';
+END
+ELSE
+BEGIN
+    PRINT N'ℹ️ Bảng LienHe đã tồn tại';
+END
+GO
+
+-- ==================================================================================
+-- 4. CẬP NHẬT DỮ LIỆU MẪU CHO TRƯỜNG TrangThaiThanhToan
+-- ==================================================================================
+
+-- Cập nhật các đơn hàng cũ chưa có trạng thái
+UPDATE DonHang 
+SET TrangThaiThanhToan = N'Đã thanh toán'
+WHERE TrangThaiThanhToan IS NULL OR TrangThaiThanhToan = '';
+
+PRINT N'✅ Đã cập nhật trạng thái thanh toán cho các đơn hàng cũ';
+GO
+
+-- ==================================================================================
+-- 5. TẠO HOẶC CẬP NHẬT STORED PROCEDURES
+-- ==================================================================================
+
+-- Procedure: Thêm đơn hàng
+IF OBJECT_ID('sp_ThemDonHang', 'P') IS NOT NULL DROP PROC sp_ThemDonHang;
+GO
+
+CREATE PROCEDURE sp_ThemDonHang
+    @MaND INT,
+    @MaSP INT,
+    @SoLuong INT,
+    @DiaChiGiaoHang NVARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    IF (SELECT SoLuongTon FROM SanPham WHERE MaSP = @MaSP) < @SoLuong
+    BEGIN
+        RAISERROR(N'Số lượng tồn kho không đủ!', 16, 1);
+        RETURN;
+    END
+    
+    DECLARE @DonGia DECIMAL(18,2) = (SELECT GiaBan FROM SanPham WHERE MaSP = @MaSP);
+    DECLARE @TongTien DECIMAL(18,2) = @DonGia * @SoLuong;
+    
+    INSERT INTO DonHang (MaND, TongTien, DiaChiGiaoHang, TrangThaiThanhToan)
+    VALUES (@MaND, @TongTien, @DiaChiGiaoHang, N'Chưa thanh toán');
+    
+    DECLARE @MaDH INT = SCOPE_IDENTITY();
+    
+    INSERT INTO ChiTietDonHangs (MaDH, MaSP, SoLuong, DonGia)
+    VALUES (@MaDH, @MaSP, @SoLuong, @DonGia);
+    
+    UPDATE SanPham SET SoLuongTon = SoLuongTon - @SoLuong WHERE MaSP = @MaSP;
+    
+    PRINT N'✅ Đã thêm đơn hàng thành công!';
+END;
+GO
+
+-- Procedure: Cập nhật tồn kho
+IF OBJECT_ID('sp_CapNhatTonKho', 'P') IS NOT NULL DROP PROC sp_CapNhatTonKho;
+GO
+
+CREATE PROCEDURE sp_CapNhatTonKho
+    @MaSP INT,
+    @SoLuongNhap INT
+AS
+BEGIN
+    UPDATE SanPham 
+    SET SoLuongTon = SoLuongTon + @SoLuongNhap 
+    WHERE MaSP = @MaSP;
+    
+    PRINT N'✅ Đã cập nhật tồn kho!';
+END;
+GO
+
+-- Procedure: Thanh toán đơn hàng
+IF OBJECT_ID('sp_ThanhToanDonHang', 'P') IS NOT NULL DROP PROC sp_ThanhToanDonHang;
+GO
+
+CREATE PROCEDURE sp_ThanhToanDonHang
+    @MaDH INT,
+    @PhuongThuc NVARCHAR(100)
+AS
+BEGIN
+    UPDATE DonHang 
+    SET TrangThaiThanhToan = N'Đã thanh toán',
+        NgayThanhToan = GETDATE(),
+        PhuongThucThanhToan = @PhuongThuc
+    WHERE MaDH = @MaDH;
+    
+    PRINT N'✅ Thanh toán thành công!';
+END;
+GO
+
+-- Procedure: Duyệt đánh giá
+IF OBJECT_ID('sp_DuyetDanhGia', 'P') IS NOT NULL DROP PROC sp_DuyetDanhGia;
+GO
+
+CREATE PROCEDURE sp_DuyetDanhGia
+    @MaDG INT,
+    @TraLoi NVARCHAR(500) = NULL
+AS
+BEGIN
+    UPDATE DanhGia 
+    SET DuocApprove = 1,
+        TraLoiAdmin = @TraLoi,
+        ThoiGianTraLoi = GETDATE()
+    WHERE MaDG = @MaDG;
+    
+    PRINT N'✅ Đã duyệt đánh giá!';
+END;
+GO
+
+-- ==================================================================================
+-- 6. CẬP NHẬT CÁC RÀNG BUỘC
+-- ==================================================================================
+
+-- Thêm constraint cho TrangThaiThanhToan nếu chưa có
+IF NOT EXISTS (SELECT * FROM sys.check_constraints WHERE name = 'CK_DonHang_TrangThaiThanhToan')
+BEGIN
+    ALTER TABLE DonHang
+    ADD CONSTRAINT CK_DonHang_TrangThaiThanhToan 
+    CHECK (TrangThaiThanhToan IN (N'Chưa thanh toán', N'Đã thanh toán', N'Đã hủy'));
+    PRINT N'✅ Đã thêm constraint cho TrangThaiThanhToan';
+END
+GO
+
+PRINT N'';
+PRINT N'========================================';
+PRINT N'✅ HOÀN TẤT CẬP NHẬT DATABASE!';
+PRINT N'========================================';
+PRINT N'';
+PRINT N'Các thay đổi đã được áp dụng:';
+PRINT N'1. ✅ Thêm các cột mới vào bảng DonHang';
+PRINT N'2. ✅ Đổi tên bảng ChiTietDonHang → ChiTietDonHangs (nếu cần)';
+PRINT N'3. ✅ Tạo bảng LienHe (nếu chưa có)';
+PRINT N'4. ✅ Cập nhật dữ liệu mẫu';
+PRINT N'5. ✅ Tạo/Cập nhật Stored Procedures';
+PRINT N'6. ✅ Thêm các ràng buộc';
+PRINT N'';

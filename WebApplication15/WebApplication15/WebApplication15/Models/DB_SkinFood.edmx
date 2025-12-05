@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB_SkinFood1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_SkinFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDonHangs">
           <Key>
             <PropertyRef Name="MaDH" />
@@ -48,17 +48,6 @@
           <Property Name="TrangThaiThanhToan" Type="nvarchar" MaxLength="50" />
           <Property Name="NgayThanhToan" Type="datetime" />
           <Property Name="PhuongThucThanhToan" Type="nvarchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="LienHe">
-          <Key>
-            <PropertyRef Name="MaLH" />
-          </Key>
-          <Property Name="MaLH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
-          <Property Name="Email" Type="nvarchar" MaxLength="100" />
-          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
-          <Property Name="NoiDung" Type="nvarchar" MaxLength="1000" />
-          <Property Name="NgayGui" Type="datetime" />
         </EntityType>
         <EntityType Name="LoaiSP">
           <Key>
@@ -334,12 +323,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_SkinFood1ModelStoreContainer">
+        <Function Name="fn_DiemTrungBinhSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="MaSP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_TongTienTheoDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="MaDH" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_TongTienTheoKhachHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="MaND" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_CapNhatTonKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="int" Mode="In" />
+          <Parameter Name="SoLuongNhap" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_DuyetDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaDG" Type="int" Mode="In" />
+          <Parameter Name="TraLoi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ThanhToanDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaDH" Type="int" Mode="In" />
+          <Parameter Name="PhuongThuc" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ThemDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaND" Type="int" Mode="In" />
+          <Parameter Name="MaSP" Type="int" Mode="In" />
+          <Parameter Name="SoLuong" Type="int" Mode="In" />
+          <Parameter Name="DiaChiGiaoHang" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ThemSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+          <Parameter Name="SoLuongTon" Type="int" Mode="In" />
+          <Parameter Name="MaDM" Type="int" Mode="In" />
+          <Parameter Name="MaTH" Type="int" Mode="In" />
+          <Parameter Name="MaLoai" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="DB_SkinFoodModelStoreContainer">
           <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHangs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LienHe" EntityType="Self.LienHe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiSP" EntityType="Self.LoaiSP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhapHang" EntityType="Self.NhapHang" Schema="dbo" store:Type="Tables" />
@@ -409,7 +432,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DB_SkinFood1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DB_SkinFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChiTietDonHang">
           <Key>
             <PropertyRef Name="MaDH" />
@@ -461,17 +484,6 @@
           <Property Name="PhuongThucThanhToan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDon__MaDH__5535A963" FromRole="DonHang" ToRole="ChiTietDonHangs" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.FK__DonHang__MaND__52593CB8" FromRole="DonHang" ToRole="NguoiDung" />
-        </EntityType>
-        <EntityType Name="LienHe">
-          <Key>
-            <PropertyRef Name="MaLH" />
-          </Key>
-          <Property Name="MaLH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="NoiDung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="NgayGui" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="LoaiSP">
           <Key>
@@ -735,12 +747,11 @@
           <End Role="ThuocTinhMyPham" Type="Self.ThuocTinhMyPham" Multiplicity="*" />
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DB_SkinFood1Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_SkinFoodEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
           <EntitySet Name="DanhGias" EntityType="Self.DanhGia" />
           <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
           <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
-          <EntitySet Name="LienHes" EntityType="Self.LienHe" />
           <EntitySet Name="LoaiSPs" EntityType="Self.LoaiSP" />
           <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
           <EntitySet Name="NhapHangs" EntityType="Self.NhapHang" />
@@ -801,15 +812,41 @@
             <End Role="ThuocTinhMyPham" EntitySet="ThuocTinhMyPhams" />
             <End Role="SanPham" EntitySet="SanPhams" />
           </AssociationSet>
+          <FunctionImport Name="sp_CapNhatTonKho">
+            <Parameter Name="MaSP" Mode="In" Type="Int32" />
+            <Parameter Name="SoLuongNhap" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DuyetDanhGia">
+            <Parameter Name="MaDG" Mode="In" Type="Int32" />
+            <Parameter Name="TraLoi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ThanhToanDonHang">
+            <Parameter Name="MaDH" Mode="In" Type="Int32" />
+            <Parameter Name="PhuongThuc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ThemDonHang">
+            <Parameter Name="MaND" Mode="In" Type="Int32" />
+            <Parameter Name="MaSP" Mode="In" Type="Int32" />
+            <Parameter Name="SoLuong" Mode="In" Type="Int32" />
+            <Parameter Name="DiaChiGiaoHang" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ThemSanPham">
+            <Parameter Name="TenSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+            <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
+            <Parameter Name="MaDM" Mode="In" Type="Int32" />
+            <Parameter Name="MaTH" Mode="In" Type="Int32" />
+            <Parameter Name="MaLoai" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_SkinFood1ModelStoreContainer" CdmEntityContainer="DB_SkinFood1Entities">
+        <EntityContainerMapping StorageEntityContainer="DB_SkinFoodModelStoreContainer" CdmEntityContainer="DB_SkinFoodEntities">
           <EntitySetMapping Name="ChiTietDonHangs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.ChiTietDonHang">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.ChiTietDonHang">
               <MappingFragment StoreEntitySet="ChiTietDonHangs">
                 <ScalarProperty Name="MaDH" ColumnName="MaDH" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -819,7 +856,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhGias">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.DanhGia">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.DanhGia">
               <MappingFragment StoreEntitySet="DanhGia">
                 <ScalarProperty Name="MaDG" ColumnName="MaDG" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -834,7 +871,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhMucs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.DanhMuc">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.DanhMuc">
               <MappingFragment StoreEntitySet="DanhMuc">
                 <ScalarProperty Name="MaDM" ColumnName="MaDM" />
                 <ScalarProperty Name="TenDM" ColumnName="TenDM" />
@@ -842,7 +879,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DonHangs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.DonHang">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.DonHang">
               <MappingFragment StoreEntitySet="DonHang">
                 <ScalarProperty Name="MaDH" ColumnName="MaDH" />
                 <ScalarProperty Name="MaND" ColumnName="MaND" />
@@ -855,20 +892,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LienHes">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.LienHe">
-              <MappingFragment StoreEntitySet="LienHe">
-                <ScalarProperty Name="MaLH" ColumnName="MaLH" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
-                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
-                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LoaiSPs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.LoaiSP">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.LoaiSP">
               <MappingFragment StoreEntitySet="LoaiSP">
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
                 <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
@@ -877,7 +902,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NguoiDungs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.NguoiDung">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.NguoiDung">
               <MappingFragment StoreEntitySet="NguoiDung">
                 <ScalarProperty Name="MaND" ColumnName="MaND" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -890,7 +915,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhapHangs">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.NhapHang">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.NhapHang">
               <MappingFragment StoreEntitySet="NhapHang">
                 <ScalarProperty Name="MaNhap" ColumnName="MaNhap" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -903,7 +928,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SanPhams">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.SanPham">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.SanPham">
               <MappingFragment StoreEntitySet="SanPham">
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
@@ -930,7 +955,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.TaiKhoan">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="MaTK" ColumnName="MaTK" />
                 <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
@@ -941,7 +966,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ThuocTinhMyPhams">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.ThuocTinhMyPham">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.ThuocTinhMyPham">
               <MappingFragment StoreEntitySet="ThuocTinhMyPham">
                 <ScalarProperty Name="MaThuocTinh" ColumnName="MaThuocTinh" />
                 <ScalarProperty Name="TenThuocTinh" ColumnName="TenThuocTinh" />
@@ -951,7 +976,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ThuongHieux">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.ThuongHieu">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.ThuongHieu">
               <MappingFragment StoreEntitySet="ThuongHieu">
                 <ScalarProperty Name="MaTH" ColumnName="MaTH" />
                 <ScalarProperty Name="TenTH" ColumnName="TenTH" />
@@ -960,7 +985,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="XuatKhoes">
-            <EntityTypeMapping TypeName="DB_SkinFood1Model.XuatKho">
+            <EntityTypeMapping TypeName="DB_SkinFoodModel.XuatKho">
               <MappingFragment StoreEntitySet="XuatKho">
                 <ScalarProperty Name="MaXuat" ColumnName="MaXuat" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -971,7 +996,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="SanPham_ThuocTinh" TypeName="DB_SkinFood1Model.SanPham_ThuocTinh" StoreEntitySet="SanPham_ThuocTinh">
+          <AssociationSetMapping Name="SanPham_ThuocTinh" TypeName="DB_SkinFoodModel.SanPham_ThuocTinh" StoreEntitySet="SanPham_ThuocTinh">
             <EndProperty Name="ThuocTinhMyPham">
               <ScalarProperty Name="MaThuocTinh" ColumnName="MaThuocTinh" />
             </EndProperty>
@@ -979,6 +1004,11 @@
               <ScalarProperty Name="MaSP" ColumnName="MaSP" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_CapNhatTonKho" FunctionName="DB_SkinFoodModel.Store.sp_CapNhatTonKho" />
+          <FunctionImportMapping FunctionImportName="sp_DuyetDanhGia" FunctionName="DB_SkinFoodModel.Store.sp_DuyetDanhGia" />
+          <FunctionImportMapping FunctionImportName="sp_ThanhToanDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThanhToanDonHang" />
+          <FunctionImportMapping FunctionImportName="sp_ThemDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThemDonHang" />
+          <FunctionImportMapping FunctionImportName="sp_ThemSanPham" FunctionName="DB_SkinFoodModel.Store.sp_ThemSanPham" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
