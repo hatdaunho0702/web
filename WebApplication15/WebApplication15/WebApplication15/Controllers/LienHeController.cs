@@ -5,7 +5,7 @@ using WebApplication15.Models;
 
 public class LienHeController : Controller
 {
-    private DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+    private DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
     public ActionResult Index()
     {

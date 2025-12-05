@@ -67,6 +67,8 @@
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
           <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -161,7 +163,48 @@
       </EndProperty>
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="sp_CapNhatTonKho" FunctionName="DB_SkinFoodModel.Store.sp_CapNhatTonKho" />
+    <FunctionImportMapping FunctionImportName="sp_DonHang_Insert" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_DonHang_SelectAll" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_SelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_DonHang_SelectAll_Result">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="TrangThaiThanhToan" ColumnName="TrangThaiThanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DonHang_Update" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_Update" />
     <FunctionImportMapping FunctionImportName="sp_DuyetDanhGia" FunctionName="DB_SkinFoodModel.Store.sp_DuyetDanhGia" />
+    <FunctionImportMapping FunctionImportName="sp_NguoiDung_Create" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_Create" />
+    <FunctionImportMapping FunctionImportName="sp_NguoiDung_ChangePassword" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_ChangePassword" />
+    <FunctionImportMapping FunctionImportName="sp_NguoiDung_Login" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_NguoiDung_Login_Result">
+          <ScalarProperty Name="MaND" ColumnName="MaND" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="VaiTro" ColumnName="VaiTro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SanPham_Delete" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Delete" />
+    <FunctionImportMapping FunctionImportName="sp_SanPham_Insert" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_SanPham_SelectAll" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_SelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_SanPham_SelectAll_Result">
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="TenTH" ColumnName="TenTH" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SanPham_Update" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Update" />
     <FunctionImportMapping FunctionImportName="sp_ThanhToanDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThanhToanDonHang" />
     <FunctionImportMapping FunctionImportName="sp_ThemDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThemDonHang" />
     <FunctionImportMapping FunctionImportName="sp_ThemSanPham" FunctionName="DB_SkinFoodModel.Store.sp_ThemSanPham" />

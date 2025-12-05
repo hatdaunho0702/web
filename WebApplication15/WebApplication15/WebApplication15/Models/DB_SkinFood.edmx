@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB_SkinFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB_SkinFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDonHangs">
           <Key>
             <PropertyRef Name="MaDH" />
@@ -68,6 +68,8 @@
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
           <Property Name="NgaySinh" Type="date" />
           <Property Name="NgayTao" Type="datetime" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NhapHang">
           <Key>
@@ -336,9 +338,52 @@
           <Parameter Name="MaSP" Type="int" Mode="In" />
           <Parameter Name="SoLuongNhap" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_DonHang_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaND" Type="int" Mode="In" />
+          <Parameter Name="TongTien" Type="decimal" Mode="In" />
+          <Parameter Name="DiaChiGiaoHang" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_DonHang_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_DonHang_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaDH" Type="int" Mode="In" />
+          <Parameter Name="TrangThaiThanhToan" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="sp_DuyetDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaDG" Type="int" Mode="In" />
           <Parameter Name="TraLoi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_NguoiDung_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+          <Parameter Name="SoDienThoai" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_NguoiDung_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhauCu" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhauMoi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_NguoiDung_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_SanPham_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SanPham_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+          <Parameter Name="SoLuongTon" Type="int" Mode="In" />
+          <Parameter Name="MaDM" Type="int" Mode="In" />
+          <Parameter Name="MaTH" Type="int" Mode="In" />
+          <Parameter Name="MaLoai" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SanPham_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_SanPham_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="int" Mode="In" />
+          <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+          <Parameter Name="SoLuongTon" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_ThanhToanDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaDH" Type="int" Mode="In" />
@@ -429,7 +474,8 @@
             <End Role="XuatKho" EntitySet="XuatKho" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_SkinFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -506,6 +552,8 @@
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__MaND__5CD6CB2B" FromRole="NguoiDung" ToRole="DanhGia" />
           <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__MaND__52593CB8" FromRole="NguoiDung" ToRole="DonHang" />
           <NavigationProperty Name="TaiKhoans" Relationship="Self.FK__TaiKhoan__MaND__3D5E1FD2" FromRole="NguoiDung" ToRole="TaiKhoan" />
@@ -816,9 +864,52 @@
             <Parameter Name="MaSP" Mode="In" Type="Int32" />
             <Parameter Name="SoLuongNhap" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="sp_DonHang_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="MaND" Mode="In" Type="Int32" />
+            <Parameter Name="TongTien" Mode="In" Type="Decimal" />
+            <Parameter Name="DiaChiGiaoHang" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DonHang_SelectAll" ReturnType="Collection(DB_SkinFoodModel.sp_DonHang_SelectAll_Result)" />
+          <FunctionImport Name="sp_DonHang_Update">
+            <Parameter Name="MaDH" Mode="In" Type="Int32" />
+            <Parameter Name="TrangThaiThanhToan" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_DuyetDanhGia">
             <Parameter Name="MaDG" Mode="In" Type="Int32" />
             <Parameter Name="TraLoi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NguoiDung_Create">
+            <Parameter Name="HoTen" Mode="In" Type="String" />
+            <Parameter Name="SoDienThoai" Mode="In" Type="String" />
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NguoiDung_ChangePassword">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="MatKhauCu" Mode="In" Type="String" />
+            <Parameter Name="MatKhauMoi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NguoiDung_Login" ReturnType="Collection(DB_SkinFoodModel.sp_NguoiDung_Login_Result)">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SanPham_Delete">
+            <Parameter Name="MaSP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SanPham_Insert">
+            <Parameter Name="TenSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+            <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
+            <Parameter Name="MaDM" Mode="In" Type="Int32" />
+            <Parameter Name="MaTH" Mode="In" Type="Int32" />
+            <Parameter Name="MaLoai" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SanPham_SelectAll" ReturnType="Collection(DB_SkinFoodModel.sp_SanPham_SelectAll_Result)" />
+          <FunctionImport Name="sp_SanPham_Update">
+            <Parameter Name="MaSP" Mode="In" Type="Int32" />
+            <Parameter Name="TenSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+            <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_ThanhToanDonHang">
             <Parameter Name="MaDH" Mode="In" Type="Int32" />
@@ -839,6 +930,28 @@
             <Parameter Name="MaLoai" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="sp_DonHang_SelectAll_Result">
+          <Property Type="Int32" Name="MaDH" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TrangThaiThanhToan" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_NguoiDung_Login_Result">
+          <Property Type="Int32" Name="MaND" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VaiTro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_SanPham_SelectAll_Result">
+          <Property Type="Int32" Name="MaSP" Nullable="false" />
+          <Property Type="String" Name="TenSP" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="GiaBan" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="SoLuongTon" Nullable="true" />
+          <Property Type="String" Name="TenDM" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenTH" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="HinhAnh" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -911,6 +1024,8 @@
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1005,7 +1120,48 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_CapNhatTonKho" FunctionName="DB_SkinFoodModel.Store.sp_CapNhatTonKho" />
+          <FunctionImportMapping FunctionImportName="sp_DonHang_Insert" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_Insert" />
+          <FunctionImportMapping FunctionImportName="sp_DonHang_SelectAll" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_DonHang_SelectAll_Result">
+                <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="TrangThaiThanhToan" ColumnName="TrangThaiThanhToan" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_DonHang_Update" FunctionName="DB_SkinFoodModel.Store.sp_DonHang_Update" />
           <FunctionImportMapping FunctionImportName="sp_DuyetDanhGia" FunctionName="DB_SkinFoodModel.Store.sp_DuyetDanhGia" />
+          <FunctionImportMapping FunctionImportName="sp_NguoiDung_Create" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_Create" />
+          <FunctionImportMapping FunctionImportName="sp_NguoiDung_ChangePassword" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_ChangePassword" />
+          <FunctionImportMapping FunctionImportName="sp_NguoiDung_Login" FunctionName="DB_SkinFoodModel.Store.sp_NguoiDung_Login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_NguoiDung_Login_Result">
+                <ScalarProperty Name="MaND" ColumnName="MaND" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="VaiTro" ColumnName="VaiTro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SanPham_Delete" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Delete" />
+          <FunctionImportMapping FunctionImportName="sp_SanPham_Insert" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Insert" />
+          <FunctionImportMapping FunctionImportName="sp_SanPham_SelectAll" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_SkinFoodModel.sp_SanPham_SelectAll_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+                <ScalarProperty Name="TenDM" ColumnName="TenDM" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="TenTH" ColumnName="TenTH" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SanPham_Update" FunctionName="DB_SkinFoodModel.Store.sp_SanPham_Update" />
           <FunctionImportMapping FunctionImportName="sp_ThanhToanDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThanhToanDonHang" />
           <FunctionImportMapping FunctionImportName="sp_ThemDonHang" FunctionName="DB_SkinFoodModel.Store.sp_ThemDonHang" />
           <FunctionImportMapping FunctionImportName="sp_ThemSanPham" FunctionName="DB_SkinFoodModel.Store.sp_ThemSanPham" />

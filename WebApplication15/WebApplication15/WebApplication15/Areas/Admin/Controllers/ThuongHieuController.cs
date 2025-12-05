@@ -13,7 +13,7 @@ namespace WebApplication15.Areas.Admin.Controllers
     public class ThuongHieuController : Controller
     {
         // GET: Admin/ThuongHieu
-        DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
         public ActionResult Index() => View(db.ThuongHieux.ToList());
 

@@ -9,7 +9,7 @@ namespace WebApplication15.Controllers
 {
     public class UserController : Controller
     {
-        DB_SkinFood1Entities data = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities data = new DB_SkinFoodEntities();
         
         // GET: User
         public ActionResult Login()
@@ -225,6 +225,104 @@ namespace WebApplication15.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            if (Session["User"] == null)
+                return RedirectToAction("Login", "User");
+
+            TaiKhoan tk = Session["User"] as TaiKhoan;
+            NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
+
+            if (nd == null)
+                return HttpNotFound();
+
+            var model = new UserProfileViewModel
+            {
+                TaiKhoan = tk,
+                NguoiDung = nd
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile(FormCollection form)
+        {
+            try
+            {
+                if (Session["User"] == null)
+                    return RedirectToAction("Login", "User");
+
+                TaiKhoan tk = Session["User"] as TaiKhoan;
+                NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
+
+                if (nd == null)
+                    return HttpNotFound();
+
+                // Lấy dữ liệu từ form
+                string hoten = form["HoTen"]?.Trim();
+                string sdt = form["SoDienThoai"]?.Trim();
+                string diachi = form["DiaChi"]?.Trim();
+                string gioitinh = form["GioiTinh"];
+
+                // Validate
+                if (string.IsNullOrWhiteSpace(hoten))
+                {
+                    ViewBag.Error = "Họ tên không được để trống!";
+                    var errorModel = new UserProfileViewModel
+                    {
+                        TaiKhoan = tk,
+                        NguoiDung = nd
+                    };
+                    return View(errorModel);
+                }
+
+                // Cập nhật thông tin
+                nd.HoTen = hoten;
+                nd.SoDienThoai = sdt;
+                nd.DiaChi = diachi;
+                nd.GioiTinh = gioitinh;
+
+                // Parse ngày sinh
+                if (!string.IsNullOrEmpty(form["NgaySinh"]))
+                {
+                    DateTime ngaysinh;
+                    if (DateTime.TryParse(form["NgaySinh"], out ngaysinh))
+                    {
+                        nd.NgaySinh = ngaysinh;
+                    }
+                }
+
+                // Lưu vào database
+                data.Entry(nd).State = System.Data.Entity.EntityState.Modified;
+                data.SaveChanges();
+
+                // Cập nhật session
+                Session["NguoiDung"] = nd;
+                Session["UserName"] = nd.HoTen;
+
+                TempData["Success"] = "Cập nhật thông tin thành công!";
+                return RedirectToAction("Profile", "User");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Đã xảy ra lỗi trong quá trình cập nhật. Vui lòng thử lại!";
+                
+                TaiKhoan tk = Session["User"] as TaiKhoan;
+                NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
+                
+                var model = new UserProfileViewModel
+                {
+                    TaiKhoan = tk,
+                    NguoiDung = nd
+                };
+                
+                return View(model);
+            }
         }
 
         public ActionResult Account()

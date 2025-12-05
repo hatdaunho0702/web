@@ -7,10 +7,3 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication15.Models
-{
-    public partial class DB_SkinFood1Entities : DB_SkinFoodEntities
-    {
-    }
-}
-

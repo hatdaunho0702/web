@@ -12,7 +12,7 @@ namespace WebApplication15.Areas.Admin.Controllers
 {
     public class LienHesController : Controller
     {
-        private DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        private DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
         // GET: Admin/LienHes
         public ActionResult Index(string q)

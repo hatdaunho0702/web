@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="233da2a2bec04886a7a82a95ada33ded" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_SkinFoodModel.ChiTietDonHang" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.DanhGia" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.DanhMuc" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.DonHang" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.LoaiSP" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.NguoiDung" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.NhapHang" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.SanPham" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+      <Diagram DiagramId="7adcc6ed0a314528adc090a69cc4c995" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_SkinFoodModel.ChiTietDonHang" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.DanhGia" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.DanhMuc" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.DonHang" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.LoaiSP" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.NguoiDung" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.NhapHang" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.SanPham" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_SkinFoodModel.TaiKhoan" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.ThuocTinhMyPham" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.ThuongHieu" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_SkinFoodModel.XuatKho" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.ThuocTinhMyPham" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.ThuongHieu" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_SkinFoodModel.XuatKho" Width="1.5" PointX="7.5" PointY="17" IsExpanded="true" />
         <AssociationConnector Association="DB_SkinFoodModel.FK__ChiTietDon__MaDH__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="DB_SkinFoodModel.FK__ChiTietDon__MaSP__5629CD9C" ManuallyRouted="false" />
         <AssociationConnector Association="DB_SkinFoodModel.FK__DanhGia__MaND__5CD6CB2B" ManuallyRouted="false" />

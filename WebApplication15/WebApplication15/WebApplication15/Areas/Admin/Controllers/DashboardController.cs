@@ -11,7 +11,7 @@ namespace WebApplication15.Areas.Admin.Controllers
     [AuthorizeAdmin]
     public class DashboardController : Controller
     {
-        DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
         // GET: Admin/Dashboard
         public ActionResult Index()

@@ -9,7 +9,7 @@ namespace WebApplication15.Controllers
 {
     public class HomeController : Controller
     {
-        DB_SkinFood1Entities data = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities data = new DB_SkinFoodEntities();
         
         public ActionResult Index(int? maTH)
         {

@@ -1,0 +1,112 @@
+﻿@model WebApplication15.Models.UserProfileViewModel
+
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin";
+    bool isLoggedIn = Session["User"] != null;
+}
+
+@if (!isLoggedIn)
+{
+    <!-- Modal thông báo yêu cầu đăng nhập -->
+    <div class="modal fade" id="loginRequiredModal" tabindex="-1" role="dialog" aria-labelledby="loginRequiredModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginRequiredModalLabel">
+                        <i class="bi bi-exclamation-triangle-fill text-warning"></i> Yêu cầu đăng nhập
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn cần đăng nhập để chỉnh sửa thông tin cá nhân.</p>
+                    <p class="text-muted mb-0">Nhấn "Đăng nhập" để tiếp tục hoặc "Đóng" để quay lại trang chủ.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='@Url.Action("Index", "Home")'">Đóng</button>
+                    <a href="@Url.Action("Login", "User")" class="btn btn-primary">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Hiển thị modal ngay khi trang load
+            $('#loginRequiredModal').modal('show');
+
+            // Xử lý khi người dùng đóng modal bằng nút X hoặc click bên ngoài
+            $('#loginRequiredModal').on('hidden.bs.modal', function () {
+                window.location.href = '@Url.Action("Index", "Home")';
+            });
+        });
+    </script>
+}
+else
+{
+    <div class="container mt-4" style="max-width:600px">
+        <div class="card shadow p-4">
+            <h3 class="text-primary mb-3">Chỉnh sửa thông tin cá nhân</h3>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">@TempData["Success"]</div>
+            }
+
+            @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { @class = "needs-validation" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group mb-3">
+                    <label for="HoTen">Họ tên <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="HoTen" name="HoTen" value="@Model.NguoiDung.HoTen" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="SoDienThoai">Số điện thoại</label>
+                    <input type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" value="@Model.NguoiDung.SoDienThoai" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="DiaChi">Địa chỉ</label>
+                    <textarea class="form-control" id="DiaChi" name="DiaChi" rows="3">@Model.NguoiDung.DiaChi</textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="GioiTinh">Giới tính</label>
+                    <select class="form-control" id="GioiTinh" name="GioiTinh">
+                        <option value="">-- Chọn giới tính --</option>
+                        <option value="Nam" @(Model.NguoiDung.GioiTinh == "Nam" ? "selected" : "")>Nam</option>
+                        <option value="Nữ" @(Model.NguoiDung.GioiTinh == "Nữ" ? "selected" : "")>Nữ</option>
+                        <option value="Khác" @(Model.NguoiDung.GioiTinh == "Khác" ? "selected" : "")>Khác</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="NgaySinh">Ngày sinh</label>
+                    <input type="date" class="form-control" id="NgaySinh" name="NgaySinh" 
+                           value="@(Model.NguoiDung.NgaySinh?.ToString("yyyy-MM-dd"))" />
+                </div>
+
+                <hr />
+
+                <div class="form-group mb-3">
+                    <label>Tên đăng nhập (Email)</label>
+                    <input type="text" class="form-control" value="@Model.TaiKhoan.TenDangNhap" disabled />
+                    <small class="form-text text-muted">Tên đăng nhập không thể thay đổi</small>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="@Url.Action("Profile", "User")" class="btn btn-secondary">Hủy</a>
+                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            }
+        </div>
+    </div>
+}

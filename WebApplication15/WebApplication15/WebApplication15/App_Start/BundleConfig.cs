@@ -24,7 +24,11 @@ namespace WebApplication15
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/MyCusTomLayOut.css"));
+            
+            // Disable bundling and minification for development
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

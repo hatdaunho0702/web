@@ -10,7 +10,7 @@ namespace WebApplication15.Controllers
     public class GioHangController : Controller
     {
         // GET: GioHang
-        DB_SkinFood1Entities data = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities data = new DB_SkinFoodEntities();
         public ActionResult Index()
         {
             Cart cart = (Cart)Session["Cart"];

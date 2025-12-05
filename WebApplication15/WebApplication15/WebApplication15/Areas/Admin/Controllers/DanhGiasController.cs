@@ -6,13 +6,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication15.Areas.Admin.Data;
 using WebApplication15.Models;
 
 namespace WebApplication15.Areas.Admin.Controllers
 {
+    [AuthorizeAdmin]
     public class DanhGiasController : Controller
     {
-        private DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        private DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
         // GET: Admin/DanhGias
         public ActionResult Index()

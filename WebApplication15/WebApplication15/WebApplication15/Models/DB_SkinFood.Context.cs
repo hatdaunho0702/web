@@ -24,11 +24,6 @@ namespace WebApplication15.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Explicitly configure LienHe entity
-            modelBuilder.Entity<LienHe>()
-                .ToTable("LienHe")
-                .HasKey(l => l.MaLH);
-            
             throw new UnintentionalCodeFirstException();
         }
     
@@ -59,6 +54,41 @@ namespace WebApplication15.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CapNhatTonKho", maSPParameter, soLuongNhapParameter);
         }
     
+        public virtual ObjectResult<Nullable<decimal>> sp_DonHang_Insert(Nullable<int> maND, Nullable<decimal> tongTien, string diaChiGiaoHang)
+        {
+            var maNDParameter = maND.HasValue ?
+                new ObjectParameter("MaND", maND) :
+                new ObjectParameter("MaND", typeof(int));
+    
+            var tongTienParameter = tongTien.HasValue ?
+                new ObjectParameter("TongTien", tongTien) :
+                new ObjectParameter("TongTien", typeof(decimal));
+    
+            var diaChiGiaoHangParameter = diaChiGiaoHang != null ?
+                new ObjectParameter("DiaChiGiaoHang", diaChiGiaoHang) :
+                new ObjectParameter("DiaChiGiaoHang", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("sp_DonHang_Insert", maNDParameter, tongTienParameter, diaChiGiaoHangParameter);
+        }
+    
+        public virtual ObjectResult<sp_DonHang_SelectAll_Result> sp_DonHang_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DonHang_SelectAll_Result>("sp_DonHang_SelectAll");
+        }
+    
+        public virtual int sp_DonHang_Update(Nullable<int> maDH, string trangThaiThanhToan)
+        {
+            var maDHParameter = maDH.HasValue ?
+                new ObjectParameter("MaDH", maDH) :
+                new ObjectParameter("MaDH", typeof(int));
+    
+            var trangThaiThanhToanParameter = trangThaiThanhToan != null ?
+                new ObjectParameter("TrangThaiThanhToan", trangThaiThanhToan) :
+                new ObjectParameter("TrangThaiThanhToan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_DonHang_Update", maDHParameter, trangThaiThanhToanParameter);
+        }
+    
         public virtual int sp_DuyetDanhGia(Nullable<int> maDG, string traLoi)
         {
             var maDGParameter = maDG.HasValue ?
@@ -70,6 +100,121 @@ namespace WebApplication15.Models
                 new ObjectParameter("TraLoi", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_DuyetDanhGia", maDGParameter, traLoiParameter);
+        }
+    
+        public virtual int sp_NguoiDung_Create(string hoTen, string soDienThoai, string tenDangNhap, string matKhau)
+        {
+            var hoTenParameter = hoTen != null ?
+                new ObjectParameter("HoTen", hoTen) :
+                new ObjectParameter("HoTen", typeof(string));
+    
+            var soDienThoaiParameter = soDienThoai != null ?
+                new ObjectParameter("SoDienThoai", soDienThoai) :
+                new ObjectParameter("SoDienThoai", typeof(string));
+    
+            var tenDangNhapParameter = tenDangNhap != null ?
+                new ObjectParameter("TenDangNhap", tenDangNhap) :
+                new ObjectParameter("TenDangNhap", typeof(string));
+    
+            var matKhauParameter = matKhau != null ?
+                new ObjectParameter("MatKhau", matKhau) :
+                new ObjectParameter("MatKhau", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_NguoiDung_Create", hoTenParameter, soDienThoaiParameter, tenDangNhapParameter, matKhauParameter);
+        }
+    
+        public virtual int sp_NguoiDung_ChangePassword(string tenDangNhap, string matKhauCu, string matKhauMoi)
+        {
+            var tenDangNhapParameter = tenDangNhap != null ?
+                new ObjectParameter("TenDangNhap", tenDangNhap) :
+                new ObjectParameter("TenDangNhap", typeof(string));
+    
+            var matKhauCuParameter = matKhauCu != null ?
+                new ObjectParameter("MatKhauCu", matKhauCu) :
+                new ObjectParameter("MatKhauCu", typeof(string));
+    
+            var matKhauMoiParameter = matKhauMoi != null ?
+                new ObjectParameter("MatKhauMoi", matKhauMoi) :
+                new ObjectParameter("MatKhauMoi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_NguoiDung_ChangePassword", tenDangNhapParameter, matKhauCuParameter, matKhauMoiParameter);
+        }
+    
+        public virtual ObjectResult<sp_NguoiDung_Login_Result> sp_NguoiDung_Login(string tenDangNhap, string matKhau)
+        {
+            var tenDangNhapParameter = tenDangNhap != null ?
+                new ObjectParameter("TenDangNhap", tenDangNhap) :
+                new ObjectParameter("TenDangNhap", typeof(string));
+    
+            var matKhauParameter = matKhau != null ?
+                new ObjectParameter("MatKhau", matKhau) :
+                new ObjectParameter("MatKhau", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NguoiDung_Login_Result>("sp_NguoiDung_Login", tenDangNhapParameter, matKhauParameter);
+        }
+    
+        public virtual int sp_SanPham_Delete(Nullable<int> maSP)
+        {
+            var maSPParameter = maSP.HasValue ?
+                new ObjectParameter("MaSP", maSP) :
+                new ObjectParameter("MaSP", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_SanPham_Delete", maSPParameter);
+        }
+    
+        public virtual int sp_SanPham_Insert(string tenSP, Nullable<decimal> giaBan, Nullable<int> soLuongTon, Nullable<int> maDM, Nullable<int> maTH, Nullable<int> maLoai)
+        {
+            var tenSPParameter = tenSP != null ?
+                new ObjectParameter("TenSP", tenSP) :
+                new ObjectParameter("TenSP", typeof(string));
+    
+            var giaBanParameter = giaBan.HasValue ?
+                new ObjectParameter("GiaBan", giaBan) :
+                new ObjectParameter("GiaBan", typeof(decimal));
+    
+            var soLuongTonParameter = soLuongTon.HasValue ?
+                new ObjectParameter("SoLuongTon", soLuongTon) :
+                new ObjectParameter("SoLuongTon", typeof(int));
+    
+            var maDMParameter = maDM.HasValue ?
+                new ObjectParameter("MaDM", maDM) :
+                new ObjectParameter("MaDM", typeof(int));
+    
+            var maTHParameter = maTH.HasValue ?
+                new ObjectParameter("MaTH", maTH) :
+                new ObjectParameter("MaTH", typeof(int));
+    
+            var maLoaiParameter = maLoai.HasValue ?
+                new ObjectParameter("MaLoai", maLoai) :
+                new ObjectParameter("MaLoai", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_SanPham_Insert", tenSPParameter, giaBanParameter, soLuongTonParameter, maDMParameter, maTHParameter, maLoaiParameter);
+        }
+    
+        public virtual ObjectResult<sp_SanPham_SelectAll_Result> sp_SanPham_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SanPham_SelectAll_Result>("sp_SanPham_SelectAll");
+        }
+    
+        public virtual int sp_SanPham_Update(Nullable<int> maSP, string tenSP, Nullable<decimal> giaBan, Nullable<int> soLuongTon)
+        {
+            var maSPParameter = maSP.HasValue ?
+                new ObjectParameter("MaSP", maSP) :
+                new ObjectParameter("MaSP", typeof(int));
+    
+            var tenSPParameter = tenSP != null ?
+                new ObjectParameter("TenSP", tenSP) :
+                new ObjectParameter("TenSP", typeof(string));
+    
+            var giaBanParameter = giaBan.HasValue ?
+                new ObjectParameter("GiaBan", giaBan) :
+                new ObjectParameter("GiaBan", typeof(decimal));
+    
+            var soLuongTonParameter = soLuongTon.HasValue ?
+                new ObjectParameter("SoLuongTon", soLuongTon) :
+                new ObjectParameter("SoLuongTon", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_SanPham_Update", maSPParameter, tenSPParameter, giaBanParameter, soLuongTonParameter);
         }
     
         public virtual int sp_ThanhToanDonHang(Nullable<int> maDH, string phuongThuc)

@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication15.Areas.Admin.Data;
 using WebApplication15.Models;
-using System.Data.Entity;
 
 namespace WebApplication15.Areas.Admin.Controllers
 {
     [AuthorizeAdmin]
     public class DonHangController : Controller
     {
-        // GET: Admin/DonHang
-        DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
+        // GET: Admin/DonHang
         public ActionResult Index()
         {
             return View(db.DonHangs.OrderByDescending(d => d.NgayDat).ToList());

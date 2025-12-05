@@ -73,6 +73,8 @@
     <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="0" />
     <Property Name="NgayTao" Type="DateTime" Precision="3" />
+    <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__MaND__5CD6CB2B" FromRole="NguoiDung" ToRole="DanhGia" />
     <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__MaND__52593CB8" FromRole="NguoiDung" ToRole="DonHang" />
     <NavigationProperty Name="TaiKhoans" Relationship="Self.FK__TaiKhoan__MaND__3D5E1FD2" FromRole="NguoiDung" ToRole="TaiKhoan" />
@@ -383,9 +385,52 @@
       <Parameter Name="MaSP" Mode="In" Type="Int32" />
       <Parameter Name="SoLuongNhap" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_DonHang_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="MaND" Mode="In" Type="Int32" />
+      <Parameter Name="TongTien" Mode="In" Type="Decimal" />
+      <Parameter Name="DiaChiGiaoHang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DonHang_SelectAll" ReturnType="Collection(DB_SkinFoodModel.sp_DonHang_SelectAll_Result)" />
+    <FunctionImport Name="sp_DonHang_Update">
+      <Parameter Name="MaDH" Mode="In" Type="Int32" />
+      <Parameter Name="TrangThaiThanhToan" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="sp_DuyetDanhGia">
       <Parameter Name="MaDG" Mode="In" Type="Int32" />
       <Parameter Name="TraLoi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_NguoiDung_Create">
+      <Parameter Name="HoTen" Mode="In" Type="String" />
+      <Parameter Name="SoDienThoai" Mode="In" Type="String" />
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="MatKhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_NguoiDung_ChangePassword">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="MatKhauCu" Mode="In" Type="String" />
+      <Parameter Name="MatKhauMoi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_NguoiDung_Login" ReturnType="Collection(DB_SkinFoodModel.sp_NguoiDung_Login_Result)">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="MatKhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SanPham_Delete">
+      <Parameter Name="MaSP" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SanPham_Insert">
+      <Parameter Name="TenSP" Mode="In" Type="String" />
+      <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+      <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
+      <Parameter Name="MaDM" Mode="In" Type="Int32" />
+      <Parameter Name="MaTH" Mode="In" Type="Int32" />
+      <Parameter Name="MaLoai" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SanPham_SelectAll" ReturnType="Collection(DB_SkinFoodModel.sp_SanPham_SelectAll_Result)" />
+    <FunctionImport Name="sp_SanPham_Update">
+      <Parameter Name="MaSP" Mode="In" Type="Int32" />
+      <Parameter Name="TenSP" Mode="In" Type="String" />
+      <Parameter Name="GiaBan" Mode="In" Type="Decimal" />
+      <Parameter Name="SoLuongTon" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_ThanhToanDonHang">
       <Parameter Name="MaDH" Mode="In" Type="Int32" />
@@ -406,4 +451,26 @@
       <Parameter Name="MaLoai" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="sp_DonHang_SelectAll_Result">
+    <Property Type="Int32" Name="MaDH" Nullable="false" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayDat" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TrangThaiThanhToan" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_NguoiDung_Login_Result">
+    <Property Type="Int32" Name="MaND" Nullable="false" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="VaiTro" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_SanPham_SelectAll_Result">
+    <Property Type="Int32" Name="MaSP" Nullable="false" />
+    <Property Type="String" Name="TenSP" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="GiaBan" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="SoLuongTon" Nullable="true" />
+    <Property Type="String" Name="TenDM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenTH" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HinhAnh" Nullable="true" MaxLength="255" />
+  </ComplexType>
 </Schema>

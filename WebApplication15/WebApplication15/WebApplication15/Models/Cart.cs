@@ -7,7 +7,7 @@ namespace WebApplication15.Models
 {
     public class Cart
     {
-        DB_SkinFood1Entities data = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities data = new DB_SkinFoodEntities();
         public List<GioHang> list { get; set; }
 
         public Cart()

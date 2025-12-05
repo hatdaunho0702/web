@@ -1,0 +1,417 @@
+﻿@model WebApplication15.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Danh sách Sản Phẩm";
+}
+<style>
+    .product-card {
+        width: 260px;
+        margin-right: 15px;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all .3s ease;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border: 1px solid #f0f0f0;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+    .product-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .product-card .p-2 {
+        padding: 1rem !important;
+    }
+
+    .product-card h6 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+        min-height: 40px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-card p {
+        margin: 0;
+    }
+
+    .price-original {
+        font-size: 13px;
+        color: #999;
+        text-decoration: line-through;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .price-sale {
+        font-size: 16px;
+        font-weight: 700;
+        color: #e63946;
+    }
+
+    .price-current {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .badge-sale {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: linear-gradient(135deg, #e63946 0%, #d62839 100%);
+        padding: 5px 12px;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(230, 57, 70, 0.4);
+        z-index: 10;
+    }
+
+    .badge-hot {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        padding: 5px 12px;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(255, 152, 0, 0.4);
+        z-index: 10;
+    }
+
+    .slider-container {
+        white-space: nowrap;
+        width: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #ddd #f5f5f5;
+    }
+
+    .slider-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .slider-container::-webkit-scrollbar-track {
+        background: #f5f5f5;
+        border-radius: 10px;
+    }
+
+    .slider-container::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 10px;
+    }
+
+    .slider-container::-webkit-scrollbar-thumb:hover {
+        background: #bbb;
+    }
+
+    .slider-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid #e0e0e0;
+        background: white;
+        font-size: 20px;
+        font-weight: bold;
+        transition: all .3s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        cursor: pointer;
+    }
+
+        .slider-btn:hover {
+            background: #f5f5f5;
+            border-color: #d0d0e0;
+            transform: scale(1.05);
+        }
+
+        .slider-btn:active {
+            transform: scale(0.95);
+        }
+
+    .section-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 30px 0 15px 0;
+        color: #333;
+    }
+
+    .brand-item {
+        padding: 10px 20px;
+        border-radius: 25px;
+        background: white;
+        border: 2px solid #e0e0e0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+        text-decoration: none;
+        transition: all .3s;
+        display: inline-block;
+    }
+
+        .brand-item:hover {
+            background: #fff5f5;
+            border-color: #ff6b6b;
+            color: #ff3b3b;
+            transform: translateY(-2px);
+        }
+
+    .brand-active {
+        background: linear-gradient(135deg, #ff3b3b 0%, #e63946 100%) !important;
+        color: white !important;
+        border-color: #ff1a1a !important;
+        box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+    }
+
+    .view-all-link {
+        font-size: 14px;
+        font-weight: 600;
+        color: #007bff;
+        text-decoration: none;
+        transition: all .2s;
+    }
+
+        .view-all-link:hover {
+            color: #0056b3;
+            transform: translateX(3px);
+        }
+
+    .product-card2 {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: all .3s;
+        background: white;
+    }
+
+        .product-card2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .product-card2 img {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .product-card2 .p-2 {
+            padding: 12px !important;
+        }
+</style>
+
+<div class="container my-4">
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <img src="~/Content/images/banner.jpg" style="width:100%; border-radius:16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+        </div>
+
+        <div class="col-md-8">
+            <h4 class="fw-bold mb-3" style="font-size: 1.3rem; color: #333;">🔥 THƯƠNG HIỆU NỔI BẬT</h4>
+
+            <div class="brand-box mb-3" style="display:flex; flex-wrap:wrap; gap:12px;">
+                @foreach (var th in Model.ThuongHieuList)
+                {
+                    <a href="@Url.Action("Index", "Home", new { maTH = th.MaTH })"
+                       class="brand-item @(Model.ThuongHieuDangChon?.MaTH == th.MaTH ? "brand-active" : "")">
+                        @th.TenTH
+                    </a>
+                }
+            </div>
+
+            @if (Model.SanPhamTheoTH.Any())
+            {
+                <h5 class="fw-bold mt-4 mb-3" style="font-size: 1.1rem; color: #555;">
+                    Sản phẩm thuộc thương hiệu: <span style="color: #ff3b3b;">@Model.ThuongHieuDangChon.TenTH</span>
+                </h5>
+                <div class="row">
+                    @foreach (var sp in Model.SanPhamTheoTH)
+                    {
+                        <div class="col-6 col-md-4 col-lg-3 mb-3">
+                            <a href="@Url.Action("ChiTietSP", "Home", new { maSP = sp.MaSP })"
+                               class="text-decoration-none text-dark">
+                                <div class="product-card2">
+                                    <img src="~/Content/images/@sp.HinhAnh"
+                                         style="width:100%; height:180px; object-fit:cover;" />
+                                    <div class="p-2">
+                                        <h6 class="fw-bold" style="font-size: 13px; min-height: 35px;">@sp.TenSP</h6>
+                                        @if (sp.GiamGia > 0)
+                                        {
+                                            <span class="price-original">@sp.GiaBan.ToString("N0") đ</span>
+                                            decimal giaSale = sp.GiaBan * (1 - ((sp.GiamGia ?? 0m) / 100m));
+                                            <span class="price-sale>@giaSale.ToString("N0") đ</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="price-current>@sp.GiaBan.ToString("N0") đ</span>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-2 mt-5">
+        <h4 class="section-title">🔥 Sản phẩm HOT</h4>
+        <a href="@Url.Action("SanPhamHot", "Home")" class="view-all-link">
+            Xem tất cả →
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <button class="slider-btn me-3" onclick="slide('slider2', -270)">&lt;</button>
+
+        <div id="slider2" class="slider-container">
+            @foreach (var sp in Model.HotProducts)
+            {
+                <a href="@Url.Action("ChiTietSP", "Home", new { maSP = sp.MaSP })"
+                   class="product-card d-inline-block text-decoration-none text-dark">
+
+                    <div class="position-relative">
+                        <span class="badge-hot">🔥 HOT</span>
+                        <img src="~/Content/images/@sp.HinhAnh" class="product-img" />
+                    </div>
+
+                    <div class="p-2">
+                        <h6>@sp.TenSP</h6>
+                        @if (sp.GiamGia > 0)
+                        {
+                            <span class="price-original">@sp.GiaBan.ToString("N0") đ</span>
+                            decimal giaSale = sp.GiaBan * (1 - ((sp.GiamGia ?? 0m) / 100m));
+                            <span class="price-sale">@giaSale.ToString("N0") đ</span>
+                        }
+                        else
+                        {
+                            <span class="price-current">@sp.GiaBan.ToString("N0") đ</span>
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+
+        <button class="slider-btn ms-3" onclick="slide('slider2', 270)">&gt;</button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+        <h4 class="section-title">💥 Sản phẩm SALE</h4>
+        <a href="@Url.Action("SanPhamSale", "Home")" class="view-all-link">
+            Xem tất cả →
+        </a>
+    </div>
+
+    <div class="d-flex align-items-center">
+        <button class="slider-btn me-3" onclick="slide('slider3', -270)">&lt;</button>
+
+        <div id="slider3" class="slider-container">
+            @foreach (var sp in Model.SaleProducts)
+            {
+                <a href="@Url.Action("ChiTietSP", "Home", new { maSP = sp.MaSP })"
+                   class="product-card d-inline-block text-decoration-none text-dark">
+
+                    <div class="position-relative">
+                        <span class="badge-sale">-@sp.GiamGia%</span>
+                        <img src="~/Content/images/@sp.HinhAnh" class="product-img" />
+                    </div>
+
+                    <div class="p-2">
+                        <h6>@sp.TenSP</h6>
+                        <span class="price-original">@sp.GiaBan.ToString("N0") đ</span>
+                        @{
+                            decimal giaSale = sp.GiaBan * (1 - ((sp.GiamGia ?? 0m) / 100m));
+                        }
+                        <span class="price-sale">@giaSale.ToString("N0") đ</span>
+                    </div>
+                </a>
+            }
+        </div>
+
+        <button class="slider-btn ms-3" onclick="slide('slider3', 270)">&gt;</button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+        <h4 class="section-title">📦 Tất cả sản phẩm</h4>
+        <a href="@Url.Action("TatCaSanPham", "Home")" class="view-all-link">
+            Xem tất cả →
+        </a>
+    </div>
+    
+    <div class="d-flex align-items-center">
+        <button class="slider-btn me-3" onclick="slide('slider1', -270)">&lt;</button>
+
+        <div id="slider1" class="slider-container">
+            @foreach (var sp in Model.DsSanPham)
+            {
+                <a href="@Url.Action("ChiTietSP", "Home", new { maSP = sp.MaSP })"
+                   class="product-card d-inline-block text-decoration-none text-dark">
+
+                    <div class="position-relative">
+                        @if (sp.GiamGia > 0)
+                        {
+                            <span class="badge-sale">-@sp.GiamGia%</span>
+                        }
+                        <img src="~/Content/images/@sp.HinhAnh" class="product-img" />
+                    </div>
+
+                    <div class="p-2">
+                        <h6>@sp.TenSP</h6>
+                        @if (sp.GiamGia > 0)
+                        {
+                            <span class="price-original">@sp.GiaBan.ToString("N0") đ</span>
+                            decimal giaSale = sp.GiaBan * (1 - ((sp.GiamGia ?? 0m) / 100m));
+                            <span class="price-sale>@giaSale.ToString("N0") đ</span>
+                        }
+                        else
+                        {
+                            <span class="price-current>@sp.GiaBan.ToString("N0") đ</span>
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+
+        <button class="slider-btn ms-3" onclick="slide('slider1', 270)">&gt;</button>
+    </div>
+
+</div>
+
+<script>
+    function slide(id, offset) {
+        document.getElementById(id).scrollBy({
+            left: offset,
+            behavior: 'smooth'
+        });
+    }
+
+    document.querySelectorAll('.brand-item').forEach(item => {
+        item.addEventListener('click', () => {
+            sessionStorage.setItem("scrollPos", window.scrollY);
+        });
+    });
+
+    window.addEventListener("load", () => {
+        let pos = sessionStorage.getItem("scrollPos");
+        if (pos) {
+            window.scrollTo(0, pos);
+        }
+    });
+</script>

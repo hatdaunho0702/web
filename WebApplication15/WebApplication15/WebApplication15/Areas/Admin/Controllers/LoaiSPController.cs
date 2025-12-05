@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication15.Areas.Admin.Data;
@@ -12,9 +14,9 @@ namespace WebApplication15.Areas.Admin.Controllers
     [AuthorizeAdmin]
     public class LoaiSPController : Controller
     {
-        // GET: Admin/LoaiSP
+        DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
-        DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        // GET: Admin/LoaiSP
 
         public ActionResult Index() => View(db.LoaiSPs.ToList());
 

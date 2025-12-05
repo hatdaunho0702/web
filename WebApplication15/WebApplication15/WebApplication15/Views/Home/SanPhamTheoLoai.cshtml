@@ -16,7 +16,7 @@ else
 <div class="row">
     @foreach (var sp in Model)
     {
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4">s
             <a href="@Url.Action("ChiTietSP", "Home", new { maSP = sp.MaSP })" class="product-link d-block h-100">
                 <div class="card h-100 shadow-sm">
                     <img src="~/Content/images/@sp.HinhAnh" alt="@sp.TenSP" class="card-img-top" />

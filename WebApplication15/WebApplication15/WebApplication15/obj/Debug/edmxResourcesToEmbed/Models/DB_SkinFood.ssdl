@@ -63,6 +63,8 @@
     <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
     <Property Name="NgaySinh" Type="date" />
     <Property Name="NgayTao" Type="datetime" />
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="NhapHang">
     <Key>
@@ -331,9 +333,52 @@
     <Parameter Name="MaSP" Type="int" Mode="In" />
     <Parameter Name="SoLuongNhap" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_DonHang_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaND" Type="int" Mode="In" />
+    <Parameter Name="TongTien" Type="decimal" Mode="In" />
+    <Parameter Name="DiaChiGiaoHang" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_DonHang_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_DonHang_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaDH" Type="int" Mode="In" />
+    <Parameter Name="TrangThaiThanhToan" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="sp_DuyetDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaDG" Type="int" Mode="In" />
     <Parameter Name="TraLoi" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_NguoiDung_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoDienThoai" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+    <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_NguoiDung_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+    <Parameter Name="MatKhauCu" Type="nvarchar" Mode="In" />
+    <Parameter Name="MatKhauMoi" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_NguoiDung_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="nvarchar" Mode="In" />
+    <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_SanPham_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SanPham_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+    <Parameter Name="SoLuongTon" Type="int" Mode="In" />
+    <Parameter Name="MaDM" Type="int" Mode="In" />
+    <Parameter Name="MaTH" Type="int" Mode="In" />
+    <Parameter Name="MaLoai" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SanPham_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_SanPham_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSP" Type="int" Mode="In" />
+    <Parameter Name="TenSP" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaBan" Type="decimal" Mode="In" />
+    <Parameter Name="SoLuongTon" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_ThanhToanDonHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaDH" Type="int" Mode="In" />

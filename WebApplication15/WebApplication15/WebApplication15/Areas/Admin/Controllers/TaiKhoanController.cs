@@ -12,7 +12,7 @@ namespace WebApplication15.Areas.Admin.Controllers
     [AuthorizeAdmin]
     public class TaiKhoanController : Controller
     {
-        DB_SkinFood1Entities db = new DB_SkinFood1Entities();
+        DB_SkinFoodEntities db = new DB_SkinFoodEntities();
 
         public ActionResult Index()
         {

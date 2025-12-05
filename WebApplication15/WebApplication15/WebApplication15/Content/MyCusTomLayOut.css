@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #212121;
 }
 
@@ -8,12 +8,11 @@
 .top-page-banner {
     text-align: center;
     background-color: #000;
-    line-height: 0; /* Xóa khoảng trắng thừa dưới ảnh */
+    line-height: 0;
 }
-    /* Bắt buộc ảnh banner phải rộng 100% */
     .top-page-banner img {
-        width: 100% !important; /* Ép ảnh giãn ra 100% */
-        height: auto; /* Tự động tính chiều cao */
+        width: 100% !important;
+        height: auto;
         max-width: 100% !important;
     }
 
@@ -21,31 +20,33 @@
 /* ----- 2. Sửa Header (Logo, Tìm kiếm, Icons) ----- */
 
 .f-header-top {
-    background-color: #fff; /* Nền trắng cho thanh header */
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .f-header-top-wrap {
-    display: flex !important; /* Xếp các mục (logo, search, tools) theo hàng ngang */
+    display: flex !important;
     flex-wrap: nowrap;
-    justify-content: space-between; /* Đẩy 3 khối ra 3 góc */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 0;
     width: 100%;
 }
 
-/* Cột 1: Logo */
 .f-header-top-logo {
-    flex-shrink: 0; /* Không cho logo bị co lại */
+    flex-shrink: 0;
 }
 
     .f-header-top-logo img {
-        max-width: 85px !important; /* Thu nhỏ logo */
+        max-width: 85px !important;
         height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .f-header-top-logo img:hover {
+        transform: scale(1.05);
     }
 
-
-
-/* Cột 2: Tìm kiếm */
 .f-header-top-search {
     flex-grow: 1;
     padding: 0 30px;
@@ -58,7 +59,7 @@
 
     .f-header-top-search .search-input-wrap {
         display: block;
-        border-bottom: 2px solid #D92F2F !important; /* Gạch dưới MÀU ĐỎ */
+        border-bottom: 2px solid #D92F2F !important;
     }
 
     .f-header-top-search .form-control {
@@ -66,14 +67,19 @@
         box-shadow: none !important;
         outline: none !important;
         padding-left: 0;
-        padding-right: 40px; /* Đệm phải để chữ không đè lên icon */
+        padding-right: 40px;
         border-radius: 0;
         height: 40px;
+        font-size: 14px;
     }
 
         .f-header-top-search .form-control:focus {
             box-shadow: none !important;
             border-color: transparent !important;
+        }
+        
+        .f-header-top-search .form-control::placeholder {
+            color: #999;
         }
 
     .f-header-top-search .btn {
@@ -85,20 +91,25 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
+        transition: color 0.3s ease;
+    }
+    
+    .f-header-top-search .btn:hover {
+        color: #D92F2F;
     }
 
-/* Cột 3: Tools (Hotline & Icons) */
 .f-header-top-tools {
-    display: flex !important; /* Bắt buộc nằm ngang */
+    display: flex !important;
     align-items: center;
     flex-shrink: 0;
-    white-space: nowrap; /* Không cho xuống hàng */
+    white-space: nowrap;
 }
 
 .f-header-top-info {
     font-size: 14px;
     font-weight: 600;
     margin-right: 15px;
+    color: #D92F2F;
 }
 
 .vertical-bar {
@@ -110,108 +121,320 @@
 .f-header-top-icons {
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
     .f-header-top-icons a {
-        margin-left: 15px;
         color: #212121;
         text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 50%;
+    }
+    
+    .f-header-top-icons a:hover {
+        background-color: #f5f5f5;
+        color: #D92F2F;
+        transform: translateY(-2px);
     }
 
 .f-header-top-mb {
-    display: none !important; /* Ẩn icon mobile trên PC */
+    display: none !important;
 }
 
-/* Sửa Giỏ hàng (Vòng tròn đỏ) */
 .f-header-top-icon-cart {
     position: relative;
 }
 
 .cart-counter {
     position: absolute;
-    top: -8px;
-    right: -10px;
-    background-color: #d92f2f;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #d92f2f 0%, #c02020 100%);
     color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(217, 47, 47, 0.3);
 }
 
 
-/* ----- 3. Sửa Menu ngang ----- */
+/* ===== 3. MENU NGANG - THIẾT KẾ HIỆN ĐẠI ===== */
 
 #f-menu {
-    background-color: #fff;
-    border-bottom: 1px solid #f0f0f0;
-    border-top: 1px solid #f0f0f0;
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+    border-bottom: 3px solid #D92F2F;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .f-menu-wrap {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap !important;
+    gap: 0;
+}
+
+/* === NÚT DANH MỤC - GRADIENT ĐỎ SANG TRỌNG === */
+.f-menu-nav {
+    flex-shrink: 0 !important;
 }
 
 .f-menu-nav-btn {
-    display: flex;
+    display: inline-flex !important;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #f7f7f7;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
+    justify-content: center;
+    padding: 18px 35px !important;
+    background: linear-gradient(135deg, #d92f2f 0%, #c02020 100%);
+    color: #ffffff !important;
+    font-weight: 700;
     font-size: 14px;
-    white-space: nowrap;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap !important;
+    box-shadow: 0 3px 8px rgba(217, 47, 47, 0.25);
+    position: relative;
+    overflow: hidden;
 }
 
-    .f-menu-nav-btn span {
-        margin-left: 8px;
+    .f-menu-nav-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+    
+    .f-menu-nav-btn:hover::before {
+        left: 100%;
+    }
+
+    .f-menu-nav-btn svg {
+        width: 20px;
+        height: 20px;
+        stroke: #ffffff;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
     }
 
     .f-menu-nav-btn:hover {
-        text-decoration: none;
-        background-color: #eee;
+        background: linear-gradient(135deg, #c02020 0%, #a01818 100%);
+        box-shadow: 0 5px 15px rgba(217, 47, 47, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .f-menu-nav-btn:hover svg {
+        transform: rotate(180deg);
     }
 
-.f-menu-list .new-main-menu {
-    display: flex;
-    justify-content: flex-start;
-    list-style: none; /* Bỏ dấu chấm tròn */
+/* === DANH SÁCH MENU - SPACING ĐẸP === */
+.f-menu-list {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+    .f-menu-list::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .f-menu-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .f-menu-list::-webkit-scrollbar-thumb {
+        background: #D92F2F;
+        border-radius: 3px;
+    }
+
+.new-main-menu {
+    display: flex !important;
+    list-style: none;
     margin: 0;
     padding: 0;
+    gap: 0;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
 }
 
-.f-menu-list .main-menu-li a {
-    padding: 15px 20px;
-    display: block;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    white-space: nowrap;
+.main-menu-li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0 !important;
 }
 
-    .f-menu-list .main-menu-li a:hover {
-        text-decoration: none;
-        color: #c92f44;
+    .main-menu-li::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 50%;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, #e8e8e8, transparent);
+    }
+    
+    .main-menu-li:last-child::after {
+        display: none;
     }
 
-/* ----- 4. Sửa phần nội dung ASP.NET (body-content) ----- */
-.body-content {
-    margin-top: 30px;
+.main-menu-li a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 28px !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.top-page-banner img {
-    width: 100% !important;
-    height: auto;
-    max-width: 100% !important;
-    /* Giới hạn chiều cao */
-    max-height: 120px; /* ← chỉnh nhỏ hơn nếu muốn banner mỏng hơn */
-    object-fit: cover; /* Giúp ảnh không bị méo khi bị cắt */
+    .main-menu-li a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #d92f2f, #ff6b6b);
+        transition: width 0.3s ease;
+    }
+
+    .main-menu-li a:hover {
+        background: linear-gradient(to bottom, #fff5f5, #ffe5e5) !important;
+        color: #d92f2f !important;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(217, 47, 47, 0.15);
+    }
+    
+    .main-menu-li a:hover::before {
+        width: 80%;
+    }
+
+/* === RESPONSIVE - TỐI ƯU MOBILE === */
+@media (max-width: 1200px) {
+    .f-menu-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    .f-menu-nav-btn {
+        padding: 16px 25px !important;
+        font-size: 13px !important;
+    }
+
+    .f-menu-list {
+        width: 100% !important;
+        border-top: 1px solid #e8e8e8;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .main-menu-li a {
+        padding: 16px 20px !important;
+        font-size: 13px !important;
+    }
 }
+
+@media (max-width: 768px) {
+    #f-menu {
+        position: relative;
+    }
+    
+    .f-menu-nav-btn {
+        padding: 14px 20px !important;
+        font-size: 12px !important;
+    }
+    
+    .f-menu-nav-btn svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    .main-menu-li a {
+        padding: 14px 16px !important;
+        font-size: 12px !important;
+        letter-spacing: 0.3px;
+    }
+}
+
+@media (max-width: 576px) {
+    .f-menu-nav-btn span {
+        display: none !important;
+    }
+
+    .f-menu-nav-btn {
+        padding: 14px !important;
+        border-radius: 8px;
+    }
+    
+    .f-menu-nav-btn svg {
+        margin-right: 0;
+    }
+
+    .main-menu-li a {
+        padding: 12px 14px !important;
+        font-size: 11px !important;
+    }
+    
+    .main-menu-li a::before {
+        height: 2px;
+    }
+}
+
+/* === ANIMATION LOAD === */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#f-menu {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.main-menu-li {
+    animation: slideInFromTop 0.5s ease-out backwards;
+}
+
+.main-menu-li:nth-child(1) { animation-delay: 0.1s; }
+.main-menu-li:nth-child(2) { animation-delay: 0.15s; }
+.main-menu-li:nth-child(3) { animation-delay: 0.2s; }
+.main-menu-li:nth-child(4) { animation-delay: 0.25s; }
+.main-menu-li:nth-child(5) { animation-delay: 0.3s; }
+.main-menu-li:nth-child(6) { animation-delay: 0.35s; }
+.main-menu-li:nth-child(7) { animation-delay: 0.4s; }

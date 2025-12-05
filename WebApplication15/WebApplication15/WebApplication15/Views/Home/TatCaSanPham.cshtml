@@ -16,10 +16,10 @@
                             <h6 class="fw-bold">@sp.TenSP</h6>
                             <p class="mb-0">
                                 <span class="text-muted text-decoration-line-through">
-                                    @sp.GiaBan.Value.ToString("N0") đ
+                                    @sp.GiaBan.ToString("N0") đ
                                 </span><br />
                                 <span class="text-danger fw-bold">
-                                    @((sp.GiaBan.Value * (1 - (sp.GiamGia/100)))?.ToString("N0")) đ
+                                    @((sp.GiaBan * (1 - ((sp.GiamGia ?? 0m)/100m))).ToString("N0")) đ
                                 </span>
                             </p>
                         </div>
