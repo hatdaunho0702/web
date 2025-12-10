@@ -133,11 +133,12 @@
     <Compile Include="Areas\Admin\Controllers\DanhGiasController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LienHesController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSPController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhapHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThuongHieuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\XuatKhoController.cs" />
     <Compile Include="Areas\Admin\Data\AuthorizeAdmin.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -178,7 +179,6 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\LienHe.cs" />
     <Compile Include="Models\LoaiSP.cs">
       <DependentUpon>DB_SkinFood.tt</DependentUpon>
     </Compile>
@@ -194,10 +194,19 @@
     <Compile Include="Models\sp_DonHang_SelectAll_Result.cs">
       <DependentUpon>DB_SkinFood.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DB_SkinFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DB_SkinFood.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_NguoiDung_Login_Result.cs">
       <DependentUpon>DB_SkinFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_SanPham_SelectAll_Result.cs">
+      <DependentUpon>DB_SkinFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DB_SkinFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
@@ -278,11 +287,6 @@
     <Content Include="Areas\Admin\Views\LoaiSP\CreateLoaiSP.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSP\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\LienHes\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\LienHes\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\LienHes\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\LienHes\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\LienHes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DanhGias\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DanhGias\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DanhGias\Details.cshtml" />
@@ -296,6 +300,12 @@
     <Content Include="Models\DB_SkinFood.edmx.diagram">
       <DependentUpon>DB_SkinFood.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\NhapHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\XuatKho\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\XuatKho\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\XuatKho\Details.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -349,7 +359,6 @@
     <Content Include="Views\Home\SanPhamTheoLoai.cshtml" />
     <Content Include="Views\Shared\_ChatBox.cshtml" />
     <Content Include="Views\Chat\ChatAI.cshtml" />
-    <Content Include="Views\LienHe\Index.cshtml" />
     <Content Include="Views\LienHe\HuongDanMuaHang.cshtml" />
     <Content Include="Views\LienHe\ChinhSachDoiTra.cshtml" />
     <Content Include="Views\LienHe\ChinhSachBaoMat.cshtml" />
@@ -360,6 +369,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\LienHes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

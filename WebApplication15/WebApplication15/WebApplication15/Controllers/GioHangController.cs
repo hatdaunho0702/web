@@ -11,6 +11,7 @@ namespace WebApplication15.Controllers
     {
         // GET: GioHang
         DB_SkinFoodEntities data = new DB_SkinFoodEntities();
+        
         public ActionResult Index()
         {
             Cart cart = (Cart)Session["Cart"];
@@ -25,17 +26,43 @@ namespace WebApplication15.Controllers
         {
             if (Session["User"] == null) // Bắt buộc đăng nhập
             {
+                TempData["Error"] = "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!";
                 return RedirectToAction("Login", "User");
+            }
+
+            // Kiểm tra sản phẩm có tồn tại và còn hàng không
+            SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == id);
+            if (sp == null)
+            {
+                TempData["Error"] = "Sản phẩm không tồn tại!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (sp.SoLuongTon <= 0)
+            {
+                TempData["Error"] = "Sản phẩm đã hết hàng!";
+                return RedirectToAction("Index", "Home");
             }
 
             Cart cart = (Cart)Session["Cart"];
             if (cart == null)
                 cart = new Cart();
 
+            // Kiểm tra số lượng trong giỏ + 1 có vượt quá tồn kho không
+            var itemInCart = cart.list.FirstOrDefault(item => item.MaSP == id);
+            int currentQtyInCart = itemInCart != null ? itemInCart.SoLuong : 0;
+            
+            if (currentQtyInCart + 1 > sp.SoLuongTon)
+            {
+                TempData["Error"] = $"Sản phẩm chỉ còn {sp.SoLuongTon} sản phẩm trong kho!";
+                return RedirectToAction("Index", "Home");
+            }
+
             int result = cart.Them(id);
             if (result == 1)
             {
                 Session["Cart"] = cart;
+                TempData["Success"] = "Đã thêm sản phẩm vào giỏ hàng!";
             }
 
             return RedirectToAction("Index", "Home");
@@ -57,6 +84,7 @@ namespace WebApplication15.Controllers
             if (result == 1)
             {
                 Session["Cart"] = cart;
+                TempData["Success"] = "Đã xóa sản phẩm khỏi giỏ hàng!";
             }
 
             return RedirectToAction("Index", "GioHang");
@@ -65,12 +93,38 @@ namespace WebApplication15.Controllers
         // Cập nhật số lượng
         public ActionResult UpdateSLCart(int id, int num)
         {
-            int result = -1;
-            Cart cart = (Cart)Session["Cart"];
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
 
+            // Kiểm tra số lượng tồn kho
+            SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == id);
+            if (sp == null)
+            {
+                TempData["Error"] = "Sản phẩm không tồn tại!";
+                return RedirectToAction("Index", "GioHang");
+            }
+
+            Cart cart = (Cart)Session["Cart"];
             if (cart == null)
                 cart = new Cart();
 
+            var itemInCart = cart.list.FirstOrDefault(item => item.MaSP == id);
+            if (itemInCart != null)
+            {
+                // Nếu tăng số lượng (num = 1), kiểm tra tồn kho
+                if (num == 1)
+                {
+                    if (itemInCart.SoLuong + 1 > sp.SoLuongTon)
+                    {
+                        TempData["Error"] = $"Sản phẩm chỉ còn {sp.SoLuongTon} trong kho!";
+                        return RedirectToAction("Index", "GioHang");
+                    }
+                }
+            }
+
+            int result = -1;
             if (num == -1)
                 result = cart.Giam(id);
             else
@@ -85,10 +139,35 @@ namespace WebApplication15.Controllers
 
         public ActionResult PaymentReview()
         {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             Cart cart = (Cart)Session["Cart"];
 
             if (cart == null || cart.list.Count == 0)
+            {
+                TempData["Error"] = "Giỏ hàng của bạn đang trống!";
                 return RedirectToAction("Index", "GioHang");
+            }
+
+            // Kiểm tra lại số lượng tồn kho của tất cả sản phẩm trong giỏ
+            foreach (var item in cart.list)
+            {
+                SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == item.MaSP);
+                if (sp == null)
+                {
+                    TempData["Error"] = $"Sản phẩm {item.TenSP} không còn tồn tại!";
+                    return RedirectToAction("Index", "GioHang");
+                }
+
+                if (sp.SoLuongTon < item.SoLuong)
+                {
+                    TempData["Error"] = $"Sản phẩm {item.TenSP} chỉ còn {sp.SoLuongTon} trong kho!";
+                    return RedirectToAction("Index", "GioHang");
+                }
+            }
 
             return View(cart);
         }
@@ -96,47 +175,109 @@ namespace WebApplication15.Controllers
         // Xác nhận thanh toán (Lưu hóa đơn & chi tiết)
         public ActionResult PaymentConfirm()
         {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             var kh = (TaiKhoan)Session["User"];
             Cart cart = (Cart)Session["Cart"];
 
             if (cart == null || cart.list.Count == 0)
+            {
+                TempData["Error"] = "Giỏ hàng của bạn đang trống!";
                 return RedirectToAction("Index", "GioHang");
-
-            // --------------------------
-            // TẠO HÓA ĐƠN
-            var hoaDon = new DonHang
-            {
-                MaND = kh.MaND,
-                NgayDat = DateTime.Now,
-                TongTien = (decimal)cart.TongThanhTien(),
-                DiaChiGiaoHang = kh.NguoiDung.DiaChi,
-                //TrangThai = "Chờ thanh toán"
-            };
-
-            data.DonHangs.Add(hoaDon);
-            data.SaveChanges(); // sinh MaDH
-
-            // --------------------------
-            // LƯU CHI TIẾT HÓA ĐƠN
-            foreach (var item in cart.list)
-            {
-                data.ChiTietDonHangs.Add(new ChiTietDonHang
-                {
-                    MaDH = hoaDon.MaDH,
-                    MaSP = item.MaSP,
-                    SoLuong = item.SoLuong,
-                    DonGia = (decimal)item.GiaBan
-                });
             }
 
-            data.SaveChanges();
+            // Lấy thông tin người dùng để kiểm tra địa chỉ
+            NguoiDung nguoiDung = data.NguoiDungs.FirstOrDefault(n => n.MaND == kh.MaND);
+            
+            if (nguoiDung == null)
+            {
+                TempData["Error"] = "Không tìm thấy thông tin người dùng!";
+                return RedirectToAction("Index", "GioHang");
+            }
 
-            // Lưu mã đơn để dùng ở bước thanh toán
-            Session["CurrentOrder"] = hoaDon.MaDH;
+            // Kiểm tra địa chỉ giao hàng
+            if (string.IsNullOrWhiteSpace(nguoiDung.DiaChi))
+            {
+                TempData["Error"] = "Vui lòng cập nhật địa chỉ giao hàng trong trang Hồ sơ trước khi đặt hàng!";
+                return RedirectToAction("EditProfile", "User");
+            }
 
-            //  CHUYỂN SANG TRANG CHỌN PHƯƠNG THỨC THANH TOÁN
-            return RedirectToAction("PaymentMethod");
+            // Kiểm tra lại tồn kho trước khi tạo đơn hàng
+            foreach (var item in cart.list)
+            {
+                SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == item.MaSP);
+                if (sp == null)
+                {
+                    TempData["Error"] = $"Sản phẩm {item.TenSP} không còn tồn tại!";
+                    return RedirectToAction("Index", "GioHang");
+                }
+
+                if (sp.SoLuongTon < item.SoLuong)
+                {
+                    TempData["Error"] = $"Sản phẩm {item.TenSP} chỉ còn {sp.SoLuongTon} trong kho!";
+                    return RedirectToAction("Index", "GioHang");
+                }
+            }
+
+            try
+            {
+                // --------------------------
+                // TẠO HÓA ĐƠN
+                var hoaDon = new DonHang
+                {
+                    MaND = kh.MaND,
+                    NgayDat = DateTime.Now,
+                    TongTien = (decimal)cart.TongThanhTien(),
+                    DiaChiGiaoHang = nguoiDung.DiaChi,
+                    TrangThaiThanhToan = "Chờ thanh toán"
+                };
+
+                data.DonHangs.Add(hoaDon);
+                data.SaveChanges(); // sinh MaDH
+
+                // --------------------------
+                // LƯU CHI TIẾT HÓA ĐƠN VÀ CẬP NHẬT TỒN KHO
+                foreach (var item in cart.list)
+                {
+                    // Thêm chi tiết đơn hàng
+                    data.ChiTietDonHangs.Add(new ChiTietDonHang
+                    {
+                        MaDH = hoaDon.MaDH,
+                        MaSP = item.MaSP,
+                        SoLuong = item.SoLuong,
+                        DonGia = (decimal)item.GiaBan
+                    });
+
+                    // Cập nhật số lượng tồn kho
+                    SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == item.MaSP);
+                    if (sp != null)
+                    {
+                        sp.SoLuongTon -= item.SoLuong;
+                        data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                    }
+                }
+
+                data.SaveChanges();
+
+                // Lưu mã đơn để dùng ở bước thanh toán
+                Session["CurrentOrder"] = hoaDon.MaDH;
+
+                System.Diagnostics.Debug.WriteLine($"✅ PaymentConfirm: Đã tạo đơn hàng MaDH={hoaDon.MaDH}, cập nhật tồn kho thành công");
+
+                //  CHUYỂN SANG TRANG CHỌN PHƯƠNG THỨC THANH TOÁN
+                return RedirectToAction("PaymentMethod");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"❌ PaymentConfirm Error: {ex.Message}");
+                TempData["Error"] = "Đã xảy ra lỗi khi tạo đơn hàng. Vui lòng thử lại!";
+                return RedirectToAction("Index", "GioHang");
+            }
         }
+        
         public ActionResult PaymentMethod()
         {
             try
@@ -144,6 +285,7 @@ namespace WebApplication15.Controllers
                 if (Session["CurrentOrder"] == null)
                 {
                     System.Diagnostics.Debug.WriteLine("❌ PaymentMethod: Session['CurrentOrder'] là null");
+                    TempData["Error"] = "Không tìm thấy thông tin đơn hàng!";
                     return RedirectToAction("Index", "GioHang");
                 }
 
@@ -153,6 +295,7 @@ namespace WebApplication15.Controllers
                 if (hoaDon == null)
                 {
                     System.Diagnostics.Debug.WriteLine($"❌ PaymentMethod: Không tìm thấy đơn hàng MaDH={maDH}");
+                    TempData["Error"] = "Không tìm thấy đơn hàng!";
                     return RedirectToAction("Index", "GioHang");
                 }
 
@@ -161,9 +304,11 @@ namespace WebApplication15.Controllers
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"❌ PaymentMethod Error: {ex.Message}");
+                TempData["Error"] = "Đã xảy ra lỗi!";
                 return RedirectToAction("Index", "GioHang");
             }
         }
+        
         public ActionResult ThanhToanCOD(int? maDH)
         {
             try
@@ -191,6 +336,8 @@ namespace WebApplication15.Controllers
                 hoaDon.TrangThaiThanhToan = "Đã thanh toán";
                 hoaDon.NgayThanhToan = DateTime.Now;
                 hoaDon.PhuongThucThanhToan = "COD";
+                
+                data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
                 data.SaveChanges();
 
                 Session["Cart"] = null;
@@ -232,6 +379,7 @@ namespace WebApplication15.Controllers
 
                 // Cập nhật phương thức thanh toán
                 hoaDon.PhuongThucThanhToan = "Chuyển Khoản";
+                data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
                 data.SaveChanges();
 
                 System.Diagnostics.Debug.WriteLine($"✅ ThanhToanChuyenKhoan: Đã cập nhật phương thức Chuyển Khoản cho MaDH={maDH}");
@@ -270,6 +418,7 @@ namespace WebApplication15.Controllers
 
                 // Cập nhật phương thức thanh toán
                 hoaDon.PhuongThucThanhToan = "QR";
+                data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
                 data.SaveChanges();
 
                 System.Diagnostics.Debug.WriteLine($"✅ ThanhToanQR: Đã cập nhật phương thức QR cho MaDH={maDH}");
@@ -354,6 +503,7 @@ namespace WebApplication15.Controllers
                     {
                         hoaDon.TrangThaiThanhToan = "Đã thanh toán";
                         hoaDon.NgayThanhToan = DateTime.Now;
+                        data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
                         data.SaveChanges();
                         System.Diagnostics.Debug.WriteLine($"✅ PaymentSuccess: Cập nhật trạng thái cho maDH={maDH}");
                     }

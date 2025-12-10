@@ -126,6 +126,16 @@
     <NavigationProperty Name="XuatKhoes" Relationship="Self.FK__XuatKho__MaSP__6A30C649" FromRole="SanPham" ToRole="XuatKho" />
     <NavigationProperty Name="ThuocTinhMyPhams" Relationship="Self.SanPham_ThuocTinh" FromRole="SanPham" ToRole="ThuocTinhMyPham" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
       <PropertyRef Name="MaTK" />
@@ -325,6 +335,7 @@
     <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
     <EntitySet Name="NhapHangs" EntityType="Self.NhapHang" />
     <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
     <EntitySet Name="ThuocTinhMyPhams" EntityType="Self.ThuocTinhMyPham" />
     <EntitySet Name="ThuongHieux" EntityType="Self.ThuongHieu" />
@@ -381,9 +392,21 @@
       <End Role="ThuocTinhMyPham" EntitySet="ThuocTinhMyPhams" />
       <End Role="SanPham" EntitySet="SanPhams" />
     </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
     <FunctionImport Name="sp_CapNhatTonKho">
       <Parameter Name="MaSP" Mode="In" Type="Int32" />
       <Parameter Name="SoLuongNhap" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
     </FunctionImport>
     <FunctionImport Name="sp_DonHang_Insert" ReturnType="Collection(Decimal)">
       <Parameter Name="MaND" Mode="In" Type="Int32" />
@@ -395,9 +418,21 @@
       <Parameter Name="MaDH" Mode="In" Type="Int32" />
       <Parameter Name="TrangThaiThanhToan" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="sp_DuyetDanhGia">
       <Parameter Name="MaDG" Mode="In" Type="Int32" />
       <Parameter Name="TraLoi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DB_SkinFoodModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DB_SkinFoodModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_NguoiDung_Create">
       <Parameter Name="HoTen" Mode="In" Type="String" />
@@ -413,6 +448,11 @@
     <FunctionImport Name="sp_NguoiDung_Login" ReturnType="Collection(DB_SkinFoodModel.sp_NguoiDung_Login_Result)">
       <Parameter Name="TenDangNhap" Mode="In" Type="String" />
       <Parameter Name="MatKhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_SanPham_Delete">
       <Parameter Name="MaSP" Mode="In" Type="Int32" />
@@ -450,6 +490,7 @@
       <Parameter Name="MaTH" Mode="In" Type="Int32" />
       <Parameter Name="MaLoai" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
   <ComplexType Name="sp_DonHang_SelectAll_Result">
     <Property Type="Int32" Name="MaDH" Nullable="false" />
@@ -457,6 +498,17 @@
     <Property Type="DateTime" Name="NgayDat" Nullable="true" Precision="23" />
     <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="18" Scale="2" />
     <Property Type="String" Name="TrangThaiThanhToan" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="sp_NguoiDung_Login_Result">
     <Property Type="Int32" Name="MaND" Nullable="false" />

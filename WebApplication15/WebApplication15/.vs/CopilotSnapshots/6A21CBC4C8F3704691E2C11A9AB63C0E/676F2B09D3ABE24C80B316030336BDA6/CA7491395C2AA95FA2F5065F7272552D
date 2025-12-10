@@ -1,0 +1,1169 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>📊 Dashboard Quản Lý Mỹ Phẩm</h2>
+<p>Chào mừng bạn đến trang quản trị.</p>
+
+<!-- DEBUG INFO (CHỈ ĐỂ KIỂM TRA - XÓA SAU KHI XONG) -->
+<div class="alert alert-info">
+    <h5>🔍 Debug Information:</h5>
+    <ul>
+        <li>TotalSanPham: <strong>@(ViewBag.TotalSanPham ?? 0)</strong></li>
+        <li>TotalDonHang: <strong>@(ViewBag.TotalDonHang ?? 0)</strong></li>
+        <li>TongNguoiMua: <strong>@(ViewBag.TongNguoiMua ?? 0)</strong></li>
+        <li>TongDoanhThu: <strong>@String.Format("{0:N0}", ViewBag.TongDoanhThu ?? 0) đ</strong></li>
+        <li>DonHangDaThanhToan: <strong>@(ViewBag.DonHangDaThanhToan ?? 0)</strong></li>
+        <li>DoanhThuDaThanhToan: <strong>@String.Format("{0:N0}", ViewBag.DoanhThuDaThanhToan ?? 0) đ</strong></li>
+    </ul>
+</div>
+
+<!-- Thống kê cơ bản -->
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5 class="card-title">📦 Tổng Sản Phẩm</h5>
+                <h2>@(ViewBag.TotalSanPham ?? 0)</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">📋 Tổng Đơn Hàng</h5>
+                <h2>@(ViewBag.TotalDonHang ?? 0)</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h5 class="card-title">👥 Tổng Người Mua</h5>
+                <h2>@(ViewBag.TongNguoiMua ?? 0)</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h5 class="card-title">💰 Tổng Doanh Thu</h5>
+                <h2>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c0}", ViewBag.TongDoanhThu ?? 0)</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================== -->
+<!-- CẢNH BÁO SẢN PHẨM TRÙNG LẶP -->
+<!-- =============================================== -->
+@if (ViewBag.SanPhamTrungLap != null)
+{
+    var sanPhamTrungLap = ViewBag.SanPhamTrungLap as IEnumerable<dynamic>;
+    if (sanPhamTrungLap != null && sanPhamTrungLap.Any())
+    {
+        <div class="card mt-4 mb-4 border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">⚠️ CẢNH BÁO: Phát Hiện Sản Phẩm Trùng Lặp!</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    <h5><i class="fa fa-exclamation-triangle"></i> Có <strong>@(ViewBag.TongSanPhamTrungLap ?? 0)</strong> sản phẩm trùng lặp cần xử lý!</h5>
+                    <p>Các sản phẩm có cùng tên, thương hiệu và loại sản phẩm.</p>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="xoaTatCaSanPhamTrung()">
+                        <i class="fa fa-trash"></i> Xóa Tất Cả Sản Phẩm Trùng
+                    </button>
+                </div>
+
+                <div class="table-responsive mt-3">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-danger">
+                            <tr>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Thương Hiệu</th>
+                                <th>Loại</th>
+                                <th>Số Lượng Trùng</th>
+                                <th>Chi Tiết</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in sanPhamTrungLap)
+                            {
+                                try
+                                {
+                                    string tenSP = Convert.ToString(item.TenSP) ?? "";
+                                    string thuongHieu = Convert.ToString(item.ThuongHieu) ?? "N/A";
+                                    string loaiSP = Convert.ToString(item.LoaiSP) ?? "N/A";
+                                    int soLuongTrung = Convert.ToInt32(item.SoLuongTrung);
+                                    var danhSachSP = item.DanhSachSP as List<WebApplication15.Models.SanPham>;
+                                    
+                                    if (danhSachSP != null && danhSachSP.Count > 0)
+                                    {
+                                        <tr>
+                                            <td><strong>@tenSP</strong></td>
+                                            <td>@thuongHieu</td>
+                                            <td>@loaiSP</td>
+                                            <td>
+                                                <span class="badge badge-danger" style="font-size: 14px;">@soLuongTrung sản phẩm</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-info" data-toggle="collapse" data-target="#detail-@danhSachSP[0].MaSP">
+                                                    <i class="fa fa-eye"></i> Xem Chi Tiết
+                                                </button>
+                                            </td>
+                                            <td>
+                                                @{
+                                                    int? maTH = danhSachSP[0].MaTH;
+                                                    int? maLoai = danhSachSP[0].MaLoai;
+                                                    string maTHStr = maTH.HasValue ? maTH.Value.ToString() : "null";
+                                                    string maLoaiStr = maLoai.HasValue ? maLoai.Value.ToString() : "null";
+                                                }
+                                                <button type="button" class="btn btn-sm btn-danger" onclick="xoaSanPhamTrung('@Html.Raw(tenSP.Replace("'", "\\'").Replace("\"", "&quot;"))', @maTHStr, @maLoaiStr)">
+                                                    <i class="fa fa-trash"></i> Xóa Trùng
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="collapse" id="detail-@danhSachSP[0].MaSP">
+                                            <td colspan="6">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h6>Danh sách các sản phẩm trùng lặp:</h6>
+                                                        <table class="table table-sm table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Mã SP</th>
+                                                                    <th>Tên</th>
+                                                                    <th>Giá Bán</th>
+                                                                    <th>Tồn Kho</th>
+                                                                    <th>Ngày Nhập</th>
+                                                                    <th>Trạng Thái</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @for (int i = 0; i < danhSachSP.Count; i++)
+                                                                {
+                                                                    var sp = danhSachSP[i];
+                                                                    var isFirst = i == 0;
+                                                                    <tr class="@(isFirst ? "table-success" : "")">
+                                                                        <td>
+                                                                            <strong>#@sp.MaSP</strong>
+                                                                            @if (isFirst)
+                                                                            {
+                                                                                <span class="badge badge-success ml-2">Sẽ giữ lại</span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <span class="badge badge-danger ml-2">Sẽ xóa</span>
+                                                                            }
+                                                                        </td>
+                                                                        <td>@sp.TenSP</td>
+                                                                        <td>@String.Format("{0:N0} đ", sp.GiaBan)</td>
+                                                                        <td>@(sp.SoLuongTon ?? 0)</td>
+                                                                        <td>@(sp.NgayNhapKho.HasValue ? sp.NgayNhapKho.Value.ToString("dd/MM/yyyy") : "N/A")</td>
+                                                                        <td>@sp.TrangThaiSanPham</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- =============================================== -->
+<!-- THỐNG KÊ DOANH THU CHI TIẾT -->
+<!-- =============================================== -->
+<div class="card mt-4 mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">💰 Thống Kê Doanh Thu Chi Tiết</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card border-info">
+                    <div class="card-body text-center">
+                        <h6>📅 Hôm Nay</h6>
+                        <h4 class="text-info">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuHomNay ?? 0)</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-success">
+                    <div class="card-body text-center">
+                        <h6>📊 Tháng Này</h6>
+                        <h4 class="text-success">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuThangNay ?? 0)</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-primary">
+                    <div class="card-body text-center">
+                        <h6>📈 Năm Nay</h6>
+                        <h4 class="text-primary">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuNamNay ?? 0)</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-secondary">
+                    <div class="card-body text-center">
+                        <h6>📉 Năm Trước</h6>
+                        <h4 class="text-secondary">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuNamTruoc ?? 0)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================== -->
+<!-- BIỂU ĐỒ DOANH THU 7 NGÀY GẦN ĐÂY -->
+<!-- =============================================== -->
+@if (ViewBag.DoanhThu7Ngay != null)
+{
+    var doanhThu7Ngay = ViewBag.DoanhThu7Ngay as IEnumerable<dynamic>;
+    if (doanhThu7Ngay != null && doanhThu7Ngay.Any())
+    {
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">📊 Biểu Đồ Doanh Thu 7 Ngày Gần Đây</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="chart7Ngay" style="max-height: 400px;"></canvas>
+            </div>
+        </div>
+
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">📅 Chi Tiết Doanh Thu 7 Ngày Gần Đây</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Số Đơn Hàng</th>
+                                <th>Doanh Thu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in doanhThu7Ngay)
+                            {
+                                try
+                                {
+                                    DateTime ngay = Convert.ToDateTime(item.Ngay);
+                                    int soDonHang = Convert.ToInt32(item.SoDonHang);
+                                    decimal doanhThu = Convert.ToDecimal(item.DoanhThu);
+                                    
+                                    <tr>
+                                        <td><strong>@ngay.ToString("dd/MM/yyyy (dddd)", new System.Globalization.CultureInfo("vi-VN"))</strong></td>
+                                        <td>
+                                            <span class="badge badge-info">@soDonHang đơn</span>
+                                        </td>
+                                        <td>
+                                            <strong class="text-success">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", doanhThu)</strong>
+                                        </td>
+                                    </tr>
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-info">
+                                <td><strong>TỔNG</strong></td>
+                                <td>
+                                    @{
+                                        int tongDon7Ngay = 0;
+                                        decimal tongDoanhThu7Ngay = 0;
+                                        foreach (var item in doanhThu7Ngay)
+                                        {
+                                            try
+                                            {
+                                                tongDon7Ngay += Convert.ToInt32(item.SoDonHang);
+                                                tongDoanhThu7Ngay += Convert.ToDecimal(item.DoanhThu);
+                                            }
+                                            catch (Exception)
+                                            {
+                                                
+                                            }
+                                        }
+                                    }
+                                    <strong>@tongDon7Ngay đơn</strong>
+                                </td>
+                                <td><strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", tongDoanhThu7Ngay)</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- =============================================== -->
+<!-- BIỂU ĐỒ DOANH THU 12 THÁNG GẦN ĐÂY -->
+<!-- =============================================== -->
+@if (ViewBag.DoanhThu12Thang != null)
+{
+    var doanhThu12Thang = ViewBag.DoanhThu12Thang as IEnumerable<dynamic>;
+    if (doanhThu12Thang != null && doanhThu12Thang.Any())
+    {
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">📈 Biểu Đồ Doanh Thu 12 Tháng Gần Đây</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="chart12Thang" style="max-height: 400px;"></canvas>
+            </div>
+        </div>
+
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">📊 Chi Tiết Doanh Thu 12 Tháng Gần Đây</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Tháng/Năm</th>
+                                <th>Số Đơn Hàng</th>
+                                <th>Doanh Thu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in doanhThu12Thang)
+                            {
+                                try
+                                {
+                                    int thang = Convert.ToInt32(item.Thang);
+                                    int nam = Convert.ToInt32(item.Nam);
+                                    int soDonHang = Convert.ToInt32(item.SoDonHang);
+                                    decimal doanhThu = Convert.ToDecimal(item.DoanhThu);
+                                    
+                                    <tr>
+                                        <td><strong>Tháng @thang/@nam</strong></td>
+                                        <td>
+                                            <span class="badge badge-success">@soDonHang đơn</span>
+                                        </td>
+                                        <td>
+                                            <strong class="text-success">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", doanhThu)</strong>
+                                        </td>
+                                    </tr>
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-success">
+                                <td><strong>TỔNG 12 THÁNG</strong></td>
+                                <td>
+                                    @{
+                                        int tongDon12Thang = 0;
+                                        decimal tongDoanhThu12Thang = 0;
+                                        foreach (var item in doanhThu12Thang)
+                                        {
+                                            try
+                                            {
+                                                tongDon12Thang += Convert.ToInt32(item.SoDonHang);
+                                                tongDoanhThu12Thang += Convert.ToDecimal(item.DoanhThu);
+                                            }
+                                            catch (Exception)
+                                            {
+                                                
+                                            }
+                                        }
+                                    }
+                                    <strong>@tongDon12Thang đơn</strong>
+                                </td>
+                                <td><strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", tongDoanhThu12Thang)</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- =============================================== -->
+<!-- TOP 5 SẢN PHẨM BÁN CHẠY -->
+<!-- =============================================== -->
+@if (ViewBag.TopSanPhamBanChay != null)
+{
+    var topSanPhamBanChay = ViewBag.TopSanPhamBanChay as IEnumerable<dynamic>;
+    if (topSanPhamBanChay != null && topSanPhamBanChay.Any())
+    {
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">🏆 Biểu Đồ Top 5 Sản Phẩm Bán Chạy</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="chartTop5SanPham" style="max-height: 400px;"></canvas>
+            </div>
+        </div>
+
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">🏆 Chi Tiết Top 5 Sản Phẩm Bán Chạy</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-warning">
+                            <tr>
+                                <th>Hạng</th>
+                                <th>Mã SP</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Số Lượng Đã Bán</th>
+                                <th>Doanh Thu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int rank = 1;}
+                            @foreach (var sp in topSanPhamBanChay)
+                            {
+                                try
+                                {
+                                    int maSP = Convert.ToInt32(sp.MaSP);
+                                    string tenSP = Convert.ToString(sp.TenSP) ?? "N/A";
+                                    int soLuongDaBan = sp.SoLuongDaBan != null ? Convert.ToInt32(sp.SoLuongDaBan) : 0;
+                                    decimal doanhThu = sp.DoanhThu != null ? Convert.ToDecimal(sp.DoanhThu) : 0;
+                                    
+                                    string rankBadge = rank == 1 ? "badge-danger" : rank == 2 ? "badge-warning" : rank == 3 ? "badge-info" : "badge-secondary";
+                                    
+                                    <tr>
+                                        <td>
+                                            <span class="badge @rankBadge" style="font-size: 16px; padding: 8px 12px;">
+                                                @if (rank == 1) { <text>🥇</text> }
+                                                else if (rank == 2) { <text>🥈</text> }
+                                                else if (rank == 3) { <text>🥉</text> }
+                                                else { <text>@rank</text> }
+                                            </span>
+                                        </td>
+                                        <td><strong>#@maSP</strong></td>
+                                        <td>@tenSP</td>
+                                        <td>
+                                            <span class="badge badge-primary">@soLuongDaBan sản phẩm</span>
+                                        </td>
+                                        <td>
+                                            <strong class="text-success">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", doanhThu)</strong>
+                                        </td>
+                                    </tr>
+                                    rank++;
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- =============================================== -->
+<!-- PHẦN THỐNG KÊ TỒN KHO -->
+<!-- =============================================== -->
+<div class="card mt-4 mb-4">
+    <div class="card-header bg-info text-white">
+        <h5 class="mb-0">📊 Thống Kê Tồn Kho</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="alert alert-info">
+                    <h6>Tổng Số Lượng Tồn</h6>
+                    <h3 class="text-primary">@(ViewBag.SoLuongTonTatCa ?? 0) <small>đơn vị</small></h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-success">
+                    <h6>✅ Đã Bán</h6>
+                    <h3 class="text-success">@(ViewBag.TongSoLuongDaBan ?? 0) <small>đơn vị</small></h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-warning">
+                    <h6>⚠️ Sản Phẩm Hết Hàng</h6>
+                    <h3 class="text-danger">@(ViewBag.SanPhamHetHang ?? 0) <small>sản phẩm</small></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================== -->
+<!-- PHẦN THỐNG KÊ THANH TOÁN ĐƠN HÀNG -->
+<!-- =============================================== -->
+<div class="card mt-4 mb-4">
+    <div class="card-header bg-success text-white">
+        <h5 class="mb-0">💳 Thống Kê Thanh Toán Đơn Hàng</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card border-success">
+                    <div class="card-body text-center">
+                        <h6>✅ Đơn Hàng Đã Thanh Toán</h6>
+                        <h2 class="text-success">@(ViewBag.DonHangDaThanhToan ?? 0)</h2>
+                        <p class="text-muted">Tháng này: @(ViewBag.DonHangDaThanhToanThangNay ?? 0)</p>
+                        <div class="alert alert-light mt-2">
+                            <small>Doanh Thu:</small><br />
+                            <strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuDaThanhToan ?? 0)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-warning">
+                    <div class="card-body text-center">
+                        <h6>❌ Đơn Hàng Chưa Thanh Toán</h6>
+                        <h2 class="text-warning">@(ViewBag.DonHangChuaThanhToan ?? 0)</h2>
+                        <p class="text-muted">Đang chờ thanh toán</p>
+                        <div class="alert alert-light mt-2">
+                            <small>Doanh Thu:</small><br />
+                            <strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.DoanhThuChuaThanhToan ?? 0)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================== -->
+<!-- DANH SÁCH ĐƠN HÀNG CHƯA THANH TOÁN -->
+<!-- =============================================== -->
+@if (ViewBag.DonHangChuaThanhToanTop10 != null)
+{
+    var donHangChuaThanhToan = ViewBag.DonHangChuaThanhToanTop10 as IEnumerable<dynamic>;
+    if (donHangChuaThanhToan != null && donHangChuaThanhToan.Any())
+    {
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">⏰ Top 10 Đơn Hàng Chưa Thanh Toán (Cũ Nhất)</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-warning">
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Khách Hàng</th>
+                                <th>Ngày Đặt</th>
+                                <th>Tổng Tiền</th>
+                                <th>Địa Chỉ</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dh in donHangChuaThanhToan)
+                            {
+                                try
+                                {
+                                    int maDH = Convert.ToInt32(dh.MaDH);
+                                    DateTime? ngayDat = dh.NgayDat as DateTime?;
+                                    decimal tongTien = dh.TongTien != null ? Convert.ToDecimal(dh.TongTien) : 0;
+                                    string diaChiGiaoHang = Convert.ToString(dh.DiaChiGiaoHang) ?? "N/A";
+                                    
+                                    string tenKhachHang = "N/A";
+                                    try
+                                    {
+                                        if (dh.NguoiDung != null)
+                                        {
+                                            tenKhachHang = Convert.ToString(dh.NguoiDung.HoTen) ?? "N/A";
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        tenKhachHang = "N/A";
+                                    }
+                                    
+                                    TimeSpan thoiGianConLai = DateTime.Now - (ngayDat ?? DateTime.Now);
+                                    
+                                    <tr>
+                                        <td><strong>#@maDH</strong></td>
+                                        <td>@tenKhachHang</td>
+                                        <td>
+                                            <span class="badge badge-light">@((ngayDat ?? DateTime.Now).ToString("dd/MM/yyyy HH:mm"))</span><br />
+                                            <small class="text-muted">@thoiGianConLai.Days ngày trước</small>
+                                        </td>
+                                        <td>
+                                            <strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", tongTien)</strong>
+                                        </td>
+                                        <td>
+                                            <small>@diaChiGiaoHang</small>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Details", "DonHang", new { id = maDH })" class="btn btn-sm btn-info" title="Xem Chi Tiết">
+                                                <i class="fa fa-eye"></i> Xem
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- Cảnh báo hạn sử dụng -->
+@if (ViewBag.SanPhamDaHetHan != null)
+{
+    var sanPhamDaHetHan = ViewBag.SanPhamDaHetHan as IEnumerable<dynamic>;
+    if (sanPhamDaHetHan != null && sanPhamDaHetHan.Any())
+    {
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading">🚨 CẢNH BÁO: Sản Phẩm Đã Hết Hạn!</h4>
+                    <p>Có <strong>@sanPhamDaHetHan.Count()</strong> sản phẩm đã vượt quá hạn sử dụng. Vui lòng xóa hoặc dừng bán.</p>
+                    <table class="table table-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Hạn Sử Dụng</th>
+                                <th>Tồn Kho</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var sp in sanPhamDaHetHan)
+                            {
+                                try
+                                {
+                                    int maSP = Convert.ToInt32(sp.MaSP);
+                                    string tenSP = Convert.ToString(sp.TenSP) ?? "N/A";
+                                    object hanSuDungObj = sp.HanSuDung;
+                                    DateTime? hanSuDung = hanSuDungObj as DateTime?;
+                                    int soLuongTon = sp.SoLuongTon != null ? Convert.ToInt32(sp.SoLuongTon) : 0;
+                                    
+                                    <tr>
+                                        <td>@maSP</td>
+                                        <td>@tenSP</td>
+                                        <td>
+                                            @if (hanSuDung.HasValue)
+                                            {
+                                                <span class="badge badge-danger">@hanSuDung.Value.ToString("dd/MM/yyyy")</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-secondary">N/A</span>
+                                            }
+                                        </td>
+                                        <td>@soLuongTon</td>
+                                    </tr>
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- Cảnh báo sắp hết hạn -->
+@if (ViewBag.SanPhamSapHetHan != null)
+{
+    var sanPhamSapHetHan = ViewBag.SanPhamSapHetHan as IEnumerable<dynamic>;
+    if (sanPhamSapHetHan != null && sanPhamSapHetHan.Any())
+    {
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading">⚠️ CẢNH BÁO: Sản Phẩm Sắp Hết Hạn (3 tháng nữa)</h4>
+                    <p>Có <strong>@sanPhamSapHetHan.Count()</strong> sản phẩm sắp hết hạn. Hãy chạy chương trình sale để xả hàng kịp thời.</p>
+                    <table class="table table-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Hạn Sử Dụng</th>
+                                <th>Tồn Kho</th>
+                                <th>Ngày Còn Lại</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var sp in sanPhamSapHetHan)
+                            {
+                                try
+                                {
+                                    DateTime ngayHienTai = DateTime.Now;
+                                    int maSP = Convert.ToInt32(sp.MaSP);
+                                    string tenSP = Convert.ToString(sp.TenSP) ?? "N/A";
+                                    object hanSuDungObj = sp.HanSuDung;
+                                    DateTime? hanSuDung = hanSuDungObj as DateTime?;
+                                    int soLuongTon = sp.SoLuongTon != null ? Convert.ToInt32(sp.SoLuongTon) : 0;
+                                    int ngayConLai = 0;
+                                    
+                                    if (hanSuDung.HasValue)
+                                    {
+                                        ngayConLai = (int)(hanSuDung.Value - ngayHienTai).TotalDays;
+                                    }
+                                    
+                                    <tr>
+                                        <td>@maSP</td>
+                                        <td>@tenSP</td>
+                                        <td>
+                                            @if (hanSuDung.HasValue)
+                                            {
+                                                <span class="badge badge-warning">@hanSuDung.Value.ToString("dd/MM/yyyy")</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-secondary">N/A</span>
+                                            }
+                                        </td>
+                                        <td>@soLuongTon</td>
+                                        <td><strong>@ngayConLai</strong> ngày</td>
+                                    </tr>
+                                }
+                                catch (Exception)
+                                {
+                                    
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- Load Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+<script>
+    // ===============================================
+    // BIỂU ĐỒ DOANH THU 7 NGÀY
+    // ===============================================
+    @if (ViewBag.DoanhThu7Ngay != null)
+    {
+        var doanhThu7NgayChart = ViewBag.DoanhThu7Ngay as IEnumerable<dynamic>;
+        if (doanhThu7NgayChart != null && doanhThu7NgayChart.Any())
+        {
+            <text>
+            var ctx7Ngay = document.getElementById('chart7Ngay').getContext('2d');
+            var chart7Ngay = new Chart(ctx7Ngay, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        @foreach (var item in doanhThu7NgayChart)
+                        {
+                            try
+                            {
+                                DateTime ngay = Convert.ToDateTime(item.Ngay);
+                                @Html.Raw("'" + ngay.ToString("dd/MM") + "',")
+                            }
+                            catch (Exception)
+                            {
+                                
+                            }
+                        }
+                    ],
+                    datasets: [{
+                        label: 'Doanh Thu (VNĐ)',
+                        data: [
+                            @foreach (var item in doanhThu7NgayChart)
+                            {
+                                try
+                                {
+                                    decimal doanhThu = Convert.ToDecimal(item.DoanhThu);
+                                    @Html.Raw(doanhThu.ToString() + ",")
+                                }
+                                catch (Exception)
+                                {
+                                    @Html.Raw("0,")
+                                }
+                            }
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    }, {
+                        label: 'Số Đơn Hàng',
+                        data: [
+                            @foreach (var item in doanhThu7NgayChart)
+                            {
+                                try
+                                {
+                                    int soDonHang = Convert.ToInt32(item.SoDonHang);
+                                    @Html.Raw(soDonHang.ToString() + ",")
+                                }
+                                catch (Exception)
+                                {
+                                    @Html.Raw("0,")
+                                }
+                            }
+                        ],
+                        type: 'line',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Doanh Thu (VNĐ)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString('vi-VN') + ' đ';
+                                }
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Số Đơn Hàng'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.datasetIndex === 0) {
+                                        label += context.parsed.y.toLocaleString('vi-VN') + ' đ';
+                                    } else {
+                                        label += context.parsed.y + ' đơn';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            </text>
+        }
+    }
+
+    // ===============================================
+    // BIỂU ĐỒ DOANH THU 12 THÁNG
+    // ===============================================
+    @if (ViewBag.DoanhThu12Thang != null)
+    {
+        var doanhThu12ThangChart = ViewBag.DoanhThu12Thang as IEnumerable<dynamic>;
+        if (doanhThu12ThangChart != null && doanhThu12ThangChart.Any())
+        {
+            <text>
+            var ctx12Thang = document.getElementById('chart12Thang').getContext('2d');
+            var chart12Thang = new Chart(ctx12Thang, {
+                type: 'line',
+                data: {
+                    labels: [
+                        @foreach (var item in doanhThu12ThangChart)
+                        {
+                            try
+                            {
+                                int thang = Convert.ToInt32(item.Thang);
+                                int nam = Convert.ToInt32(item.Nam);
+                                @Html.Raw("'" + thang + "/" + nam + "',")
+                            }
+                            catch (Exception)
+                            {
+                                
+                            }
+                        }
+                    ],
+                    datasets: [{
+                        label: 'Doanh Thu (VNĐ)',
+                        data: [
+                            @foreach (var item in doanhThu12ThangChart)
+                            {
+                                try
+                                {
+                                    decimal doanhThu = Convert.ToDecimal(item.DoanhThu);
+                                    @Html.Raw(doanhThu.ToString() + ",")
+                                }
+                                catch (Exception)
+                                {
+                                    @Html.Raw("0,")
+                                }
+                            }
+                        ],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Doanh Thu (VNĐ)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString('vi-VN') + ' đ';
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tháng/Năm'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Doanh Thu: ' + context.parsed.y.toLocaleString('vi-VN') + ' đ';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            </text>
+        }
+    }
+
+    // ===============================================
+    // BIỂU ĐỒ TOP 5 SẢN PHẨM BÁN CHẠY
+    // ===============================================
+    @if (ViewBag.TopSanPhamBanChay != null)
+    {
+        var topSanPhamBanChayChart = ViewBag.TopSanPhamBanChay as IEnumerable<dynamic>;
+        if (topSanPhamBanChayChart != null && topSanPhamBanChayChart.Any())
+        {
+            <text>
+            var ctxTop5 = document.getElementById('chartTop5SanPham').getContext('2d');
+            var chartTop5 = new Chart(ctxTop5, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        @foreach (var sp in topSanPhamBanChayChart)
+                        {
+                            try
+                            {
+                                string tenSP = Convert.ToString(sp.TenSP) ?? "N/A";
+                                // Rút ngắn tên nếu quá dài
+                                if (tenSP.Length > 25)
+                                {
+                                    tenSP = tenSP.Substring(0, 25) + "...";
+                                }
+                                @Html.Raw("'" + tenSP.Replace("'", "\\'") + "',")
+                            }
+                            catch (Exception)
+                            {
+                                
+                            }
+                        }
+                    ],
+                    datasets: [{
+                        label: 'Số Lượng Đã Bán',
+                        data: [
+                            @foreach (var sp in topSanPhamBanChayChart)
+                            {
+                                try
+                                {
+                                    int soLuongDaBan = sp.SoLuongDaBan != null ? Convert.ToInt32(sp.SoLuongDaBan) : 0;
+                                    @Html.Raw(soLuongDaBan.ToString() + ",")
+                                }
+                                catch (Exception)
+                                {
+                                    @Html.Raw("0,")
+                                }
+                            }
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(75, 192, 192, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Số Lượng'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Đã bán: ' + context.parsed.x + ' sản phẩm';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            </text>
+        }
+    }
+
+    function xoaSanPhamTrung(tenSP, maTH, maLoai) {
+        if (!confirm('Bạn có chắc chắn muốn xóa các sản phẩm trùng lặp này?\n\nHệ thống sẽ giữ lại sản phẩm có mã nhỏ nhất và cộng tồn kho.')) {
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("XoaSanPhamTrung", "Dashboard")',
+            type: 'POST',
+            data: {
+                tenSP: tenSP,
+                maTH: maTH,
+                maLoai: maLoai
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('Có lỗi xảy ra khi xóa sản phẩm trùng lặp!');
+            }
+        });
+    }
+
+    function xoaTatCaSanPhamTrung() {
+        if (!confirm('⚠️ CẢNH BÁO!\n\nBạn có chắc chắn muốn xóa TẤT CẢ sản phẩm trùng lặp?\n\nHệ thống sẽ:\n- Giữ lại sản phẩm có mã nhỏ nhất\n- Cộng tồn kho vào sản phẩm được giữ lại\n- Xóa các sản phẩm trùng còn lại (nếu chưa có trong đơn hàng)')) {
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("XoaTatCaSanPhamTrung", "Dashboard")',
+            type: 'POST',
+            success: function(response) {
+                if (response.success) {
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('Có lỗi xảy ra khi xóa sản phẩm trùng lặp!');
+            }
+        });
+    }
+</script>
+
+<style>
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        border-radius: 8px 8px 0 0;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+    .badge {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .alert {
+        border-radius: 6px;
+    }
+    canvas {
+        max-width: 100%;
+        height: 400px !important;
+    }
+</style>

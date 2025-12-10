@@ -1,0 +1,56 @@
+﻿@model WebApplication15.Models.XuatKho
+
+@{
+    ViewBag.Title = "Chi tiết phiếu xuất";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0"><i class="fas fa-info-circle"></i> Chi tiết phiếu xuất #@Model.MaXuat</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th style="width: 200px;"><i class="fas fa-hashtag"></i> Mã xuất:</th>
+                            <td>@Model.MaXuat</td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-box"></i> Sản phẩm:</th>
+                            <td>@Model.SanPham.TenSP</td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-sort-numeric-down"></i> Số lượng xuất:</th>
+                            <td><strong class="text-danger">@Model.SoLuongXuat</strong></td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-calendar-alt"></i> Ngày xuất:</th>
+                            <td>@(Model.NgayXuat?.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-clipboard-list"></i> Lý do xuất:</th>
+                            <td>
+                                <span class="badge badge-@(Model.LyDoXuat == "Hết hạn" ? "danger" : Model.LyDoXuat == "Hỏng hóc" ? "warning" : "info")">
+                                    @Model.LyDoXuat
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-sticky-note"></i> Ghi chú:</th>
+                            <td>@Model.GhiChu</td>
+                        </tr>
+                    </table>
+
+                    <div class="text-right mt-4">
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

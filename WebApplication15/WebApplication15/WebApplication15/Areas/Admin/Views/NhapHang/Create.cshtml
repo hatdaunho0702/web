@@ -1,0 +1,165 @@
+﻿@model WebApplication15.Models.NhapHang
+
+@{
+    ViewBag.Title = "Thêm phiếu nhập hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-plus-circle"></i> Thêm phiếu nhập hàng</h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    @using (Html.BeginForm("Create", "NhapHang", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="form-group">
+                            <label for="MaSP" class="font-weight-bold">
+                                <i class="fas fa-box"></i> Sản phẩm <span class="text-danger">*</span>
+                            </label>
+                            @Html.DropDownList("MaSP", (SelectList)ViewBag.MaSP, "-- Chọn sản phẩm --", new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessage("MaSP", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SoLuongNhap" class="font-weight-bold">
+                                <i class="fas fa-sort-numeric-up"></i> Số lượng nhập <span class="text-danger">*</span>
+                            </label>
+                            @Html.TextBox("SoLuongNhap", null, new { @class = "form-control", type = "number", min = "1", required = "required", placeholder = "Nhập số lượng" })
+                            @Html.ValidationMessage("SoLuongNhap", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GiaVon" class="font-weight-bold">
+                                <i class="fas fa-dollar-sign"></i> Giá vốn (VNĐ) <span class="text-danger">*</span>
+                            </label>
+                            @Html.TextBox("GiaVon", null, new { @class = "form-control", type = "number", min = "0", step = "1000", required = "required", placeholder = "Nhập giá vốn" })
+                            @Html.ValidationMessage("GiaVon", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="NhaCungCap" class="font-weight-bold">
+                                <i class="fas fa-building"></i> Nhà cung cấp
+                            </label>
+                            @Html.TextBox("NhaCungCap", null, new { @class = "form-control", placeholder = "Nhập tên nhà cung cấp" })
+                            @Html.ValidationMessage("NhaCungCap", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GhiChu" class="font-weight-bold">
+                                <i class="fas fa-sticky-note"></i> Ghi chú
+                            </label>
+                            @Html.TextArea("GhiChu", null, new { @class = "form-control", rows = "3", placeholder = "Nhập ghi chú (nếu có)" })
+                            @Html.ValidationMessage("GhiChu", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> 
+                            <strong>Lưu ý:</strong> Sau khi nhập hàng, số lượng tồn kho của sản phẩm sẽ được cập nhật tự động.
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg mr-2">
+                                <i class="fas fa-save"></i> Lưu phiếu nhập
+                            </button>
+                            <a href="@Url.Action("Index")" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times"></i> Hủy
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script>
+        $(document).ready(function() {
+            // Tính thành tiền tự động
+            function tinhThanhTien() {
+                var soLuong = parseInt($('#SoLuongNhap').val()) || 0;
+                var giaVon = parseInt($('#GiaVon').val()) || 0;
+                var thanhTien = soLuong * giaVon;
+                
+                if (soLuong > 0 && giaVon > 0) {
+                    $('#thanhTienDisplay').html(
+                        '<div class="alert alert-success mt-3">' +
+                        '<strong>Thành tiền:</strong> ' + thanhTien.toLocaleString('vi-VN') + ' đ' +
+                        '</div>'
+                    );
+                } else {
+                    $('#thanhTienDisplay').html('');
+                }
+            }
+
+            $('#SoLuongNhap, #GiaVon').on('input', tinhThanhTien);
+
+            // Validation form
+            $('form').submit(function(e) {
+                var soLuong = parseInt($('#SoLuongNhap').val());
+                var giaVon = parseInt($('#GiaVon').val());
+                var maSP = $('#MaSP').val();
+
+                if (!maSP) {
+                    e.preventDefault();
+                    alert('Vui lòng chọn sản phẩm!');
+                    $('#MaSP').focus();
+                    return false;
+                }
+
+                if (!soLuong || soLuong <= 0) {
+                    e.preventDefault();
+                    alert('Số lượng nhập phải lớn hơn 0!');
+                    $('#SoLuongNhap').focus();
+                    return false;
+                }
+
+                if (!giaVon || giaVon <= 0) {
+                    e.preventDefault();
+                    alert('Giá vốn phải lớn hơn 0!');
+                    $('#GiaVon').focus();
+                    return false;
+                }
+
+                return true;
+            });
+        });
+    </script>
+}
+
+<div id="thanhTienDisplay"></div>
+
+<style>
+    .card {
+        border-radius: 8px;
+    }
+    .form-group label {
+        color: #333;
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    .alert-info {
+        background-color: #e7f3ff;
+        border-color: #b3d9ff;
+        color: #004085;
+    }
+</style>

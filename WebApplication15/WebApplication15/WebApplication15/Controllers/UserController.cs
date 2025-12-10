@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication15.Models;
@@ -10,6 +12,21 @@ namespace WebApplication15.Controllers
     public class UserController : Controller
     {
         DB_SkinFoodEntities data = new DB_SkinFoodEntities();
+        
+        // Helper method to hash password
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
         
         // GET: User
         public ActionResult Login()
@@ -44,33 +61,35 @@ namespace WebApplication15.Controllers
                 Email = Email.Trim();
                 MatKhau = MatKhau.Trim();
 
-                // Tìm tài khoản
+                // Hash password để so sánh
+                string hashedPassword = HashPassword(MatKhau);
+
+                // Tìm tài khoản theo TenDangNhap và MatKhauHash
                 TaiKhoan user = data.TaiKhoans
-                    .FirstOrDefault(kh => kh.TenDangNhap == Email);
+                    .FirstOrDefault(kh => kh.TenDangNhap == Email && kh.MatKhauHash == hashedPassword);
 
                 // Kiểm tra tài khoản có tồn tại
                 if (user == null)
                 {
-                    ViewBag.Error = "Email không tồn tại trong hệ thống!";
+                    ViewBag.Error = "Email hoặc mật khẩu không chính xác!";
                     return View("Login");
                 }
 
-                // Kiểm tra mật khẩu
-                if (user.MatKhauHash != MatKhau)
-                {
-                    ViewBag.Error = "Mật khẩu không chính xác!";
-                    return View("Login");
-                }
-
-                // Tìm thông tin người dùng
+                // Tìm thông tin người dùng từ MaND
                 NguoiDung nd = data.NguoiDungs
                     .FirstOrDefault(n => n.MaND == user.MaND);
+
+                if (nd == null)
+                {
+                    ViewBag.Error = "Không tìm thấy thông tin người dùng!";
+                    return View("Login");
+                }
 
                 // Lưu session
                 Session["User"] = user;
                 Session["NguoiDung"] = nd;
                 Session["Role"] = user.VaiTro;
-                Session["UserName"] = nd?.HoTen ?? user.TenDangNhap;
+                Session["UserName"] = nd.HoTen;
 
                 // Chuyển hướng theo vai trò
                 if (user.VaiTro == "Admin")
@@ -79,13 +98,13 @@ namespace WebApplication15.Controllers
                     return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
                 }
 
-                TempData["Success"] = $"Đăng nhập thành công! Chào mừng {nd?.HoTen ?? "bạn"}!";
+                TempData["Success"] = $"Đăng nhập thành công! Chào mừng {nd.HoTen}!";
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
                 ViewBag.Error = "Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại!";
-                // Log error here
+                System.Diagnostics.Debug.WriteLine($"Login Error: {ex.Message}");
                 return View("Login");
             }
         }
@@ -144,9 +163,9 @@ namespace WebApplication15.Controllers
                     return View("Register");
                 }
 
-                // Kiểm tra tài khoản có tồn tại chưa
-                var check = data.TaiKhoans.FirstOrDefault(t => t.TenDangNhap == username);
-                if (check != null)
+                // Kiểm tra email đã tồn tại chưa
+                var checkEmail = data.TaiKhoans.FirstOrDefault(t => t.TenDangNhap == username);
+                if (checkEmail != null)
                 {
                     ViewBag.Error = "Email này đã được đăng ký!";
                     return View("Register");
@@ -173,11 +192,14 @@ namespace WebApplication15.Controllers
                 data.NguoiDungs.Add(nd);
                 data.SaveChanges();
 
-                // Tạo bản ghi TaiKhoan
+                // Hash mật khẩu trước khi lưu
+                string hashedPassword = HashPassword(password);
+
+                // Tạo bản ghi TaiKhoan với mật khẩu đã hash
                 TaiKhoan tk = new TaiKhoan
                 {
                     TenDangNhap = username,
-                    MatKhauHash = password, // TODO: Nên hash mật khẩu
+                    MatKhauHash = hashedPassword,
                     VaiTro = "KhachHang",
                     MaND = nd.MaND
                 };
@@ -191,7 +213,7 @@ namespace WebApplication15.Controllers
             catch (Exception ex)
             {
                 ViewBag.Error = "Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại!";
-                // Log error here
+                System.Diagnostics.Debug.WriteLine($"Register Error: {ex.Message}");
                 return View("Register");
             }
         }
@@ -216,7 +238,12 @@ namespace WebApplication15.Controllers
                 return RedirectToAction("Login", "User");
 
             TaiKhoan tk = Session["User"] as TaiKhoan;
-            NguoiDung nd = Session["NguoiDung"] as NguoiDung;
+            
+            // Reload người dùng từ database để có dữ liệu mới nhất
+            NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
+
+            if (nd == null)
+                return HttpNotFound();
 
             var model = new UserProfileViewModel
             {
@@ -311,6 +338,7 @@ namespace WebApplication15.Controllers
             catch (Exception ex)
             {
                 ViewBag.Error = "Đã xảy ra lỗi trong quá trình cập nhật. Vui lòng thử lại!";
+                System.Diagnostics.Debug.WriteLine($"EditProfile Error: {ex.Message}");
                 
                 TaiKhoan tk = Session["User"] as TaiKhoan;
                 NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
@@ -354,6 +382,7 @@ namespace WebApplication15.Controllers
 
             TaiKhoan tk = Session["User"] as TaiKhoan;
 
+            // Sửa lại query để lấy đúng theo MaND trong TaiKhoan
             var list = data.DonHangs
                 .Where(d => d.MaND == tk.MaND)
                 .OrderByDescending(d => d.NgayDat)
@@ -367,7 +396,10 @@ namespace WebApplication15.Controllers
             if (Session["User"] == null)
                 return RedirectToAction("Login", "User");
 
-            var dh = data.DonHangs.FirstOrDefault(d => d.MaDH == id);
+            TaiKhoan tk = Session["User"] as TaiKhoan;
+            
+            // Kiểm tra đơn hàng có thuộc về người dùng hiện tại không
+            var dh = data.DonHangs.FirstOrDefault(d => d.MaDH == id && d.MaND == tk.MaND);
 
             if (dh == null)
                 return HttpNotFound();
@@ -381,6 +413,78 @@ namespace WebApplication15.Controllers
             };
 
             return View(model);
+        }
+        
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            if (Session["User"] == null)
+                return RedirectToAction("Login", "User");
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(FormCollection form)
+        {
+            try
+            {
+                if (Session["User"] == null)
+                    return RedirectToAction("Login", "User");
+
+                TaiKhoan tk = Session["User"] as TaiKhoan;
+                
+                string oldPassword = form["OldPassword"];
+                string newPassword = form["NewPassword"];
+                string confirmPassword = form["ConfirmPassword"];
+
+                // Validate
+                if (string.IsNullOrWhiteSpace(oldPassword) || string.IsNullOrWhiteSpace(newPassword))
+                {
+                    ViewBag.Error = "Vui lòng nhập đầy đủ thông tin!";
+                    return View();
+                }
+
+                if (newPassword != confirmPassword)
+                {
+                    ViewBag.Error = "Mật khẩu mới và xác nhận mật khẩu không khớp!";
+                    return View();
+                }
+
+                if (newPassword.Length < 6)
+                {
+                    ViewBag.Error = "Mật khẩu mới phải có ít nhất 6 ký tự!";
+                    return View();
+                }
+
+                // Kiểm tra mật khẩu cũ
+                string hashedOldPassword = HashPassword(oldPassword);
+                TaiKhoan user = data.TaiKhoans.FirstOrDefault(t => t.MaTK == tk.MaTK);
+
+                if (user == null || user.MatKhauHash != hashedOldPassword)
+                {
+                    ViewBag.Error = "Mật khẩu hiện tại không chính xác!";
+                    return View();
+                }
+
+                // Cập nhật mật khẩu mới
+                user.MatKhauHash = HashPassword(newPassword);
+                data.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                data.SaveChanges();
+
+                // Cập nhật session
+                Session["User"] = user;
+
+                TempData["Success"] = "Đổi mật khẩu thành công!";
+                return RedirectToAction("Profile", "User");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Đã xảy ra lỗi trong quá trình đổi mật khẩu. Vui lòng thử lại!";
+                System.Diagnostics.Debug.WriteLine($"ChangePassword Error: {ex.Message}");
+                return View();
+            }
         }
     }
 }

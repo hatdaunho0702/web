@@ -6,13 +6,15 @@
     <!-- DataTables CSS -->
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
     <div class="d-flex">
 
         <!-- SIDEBAR -->
-        <div class="bg-dark text-white p-3" style="width: 250px; height:100vh;">
+        <div class="bg-dark text-white p-3" style="width: 250px; height:100vh; overflow-y: auto;">
             <h4 class="text-center mb-4">ADMIN PANEL</h4>
 
             <a class="d-block text-white mb-3" href="@Url.Action("Index","Dashboard", new {area="Admin"})">📊 Dashboard</a>
@@ -20,9 +22,17 @@
             <a class="d-block text-white mb-3" href="@Url.Action("Index","LoaiSP", new {area="Admin"})">📂 Loại SP</a>
             <a class="d-block text-white mb-3" href="@Url.Action("Index","ThuongHieu", new {area="Admin"})">🏷 Thương hiệu</a>
             <a class="d-block text-white mb-3" href="@Url.Action("Index","DonHang", new {area="Admin"})">🧾 Đơn hàng</a>
-            <a class="d-block text-white mb-3" href="@Url.Action("Index","LienHes", new {area="Admin"})">📞 Liên hệ</a>
             <a class="d-block text-white mb-3" href="@Url.Action("Index","DanhGias", new {area="Admin"})">⭐ Đánh giá</a>
             <a class="d-block text-white mb-3" href="@Url.Action("Index","TaiKhoan", new {area="Admin"})">👤 Tài khoản</a>
+
+            <hr class="bg-secondary" />
+            <h6 class="text-center text-secondary">Kho hàng</h6>
+            <a class="d-block text-white mb-3" href="@Url.Action("Index","NhapHang", new {area="Admin"})">
+                <i class="fas fa-box-open"></i> Nhập hàng
+            </a>
+            <a class="d-block text-white mb-3" href="@Url.Action("Index","XuatKho", new {area="Admin"})">
+                <i class="fas fa-dolly"></i> Xuất kho
+            </a>
 
             <hr />
             <a class="d-block text-warning" href="/User/Logout">Đăng xuất</a>

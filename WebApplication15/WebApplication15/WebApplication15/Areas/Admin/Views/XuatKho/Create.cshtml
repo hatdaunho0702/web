@@ -1,0 +1,59 @@
+﻿@model WebApplication15.Models.XuatKho
+
+@{
+    ViewBag.Title = "Thêm phiếu xuất kho";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0"><i class="fas fa-plus-circle"></i> Thêm phiếu xuất kho</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "XuatKho", FormMethod.Post, new { @class = "needs-validation" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            <label for="MaSP"><i class="fas fa-box"></i> Sản phẩm <span class="text-danger">*</span></label>
+                            @Html.DropDownList("MaSP", null, "-- Chọn sản phẩm --", new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessageFor(model => model.MaSP, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SoLuongXuat"><i class="fas fa-sort-numeric-down"></i> Số lượng xuất <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(model => model.SoLuongXuat, new { @class = "form-control", type = "number", min = "1", required = "required" })
+                            @Html.ValidationMessageFor(model => model.SoLuongXuat, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="LyDoXuat"><i class="fas fa-clipboard-list"></i> Lý do xuất</label>
+                            @Html.DropDownList("LyDoXuat", null, "-- Chọn lý do --", new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GhiChu"><i class="fas fa-sticky-note"></i> Ghi chú</label>
+                            @Html.TextAreaFor(model => model.GhiChu, new { @class = "form-control", rows = "3", placeholder = "Ghi chú thêm (nếu có)" })
+                        </div>
+
+                        <div class="form-group text-right">
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-save"></i> Lưu phiếu xuất
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

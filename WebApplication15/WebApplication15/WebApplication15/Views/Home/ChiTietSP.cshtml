@@ -18,19 +18,19 @@
             <p><strong>Danh mục:</strong> @(ViewBag.TenDanhMuc ?? "Không xác định")</p>
             <p><strong>Loại:</strong> @(Model.LoaiSP?.TenLoai ?? "Không xác định")</p>
 
-            @if (Model.GiamGia != null && Model.GiamGia > 0)
+            @if (Model.GiamGia != null && Model.GiamGia > 0 && Model.GiaBan.HasValue)
             {
                 <p class="text-danger lead">
-                    <del>Giá gốc: @String.Format("{0:N0} VNĐ", Model.GiaBan)</del>
+                    <del>Giá gốc: @String.Format("{0:N0} VNĐ", Model.GiaBan.Value)</del>
                 </p>
-                decimal giaGiam = Model.GiaBan * (1 - (Model.GiamGia.Value / 100));
+                var giaGiam = Model.GiaBan.Value * (1 - (Model.GiamGia.Value / 100));
                 <h4 class="text-success">
                     Giá bán: @String.Format("{0:N0} VNĐ", giaGiam)
                 </h4>
             }
             else
             {
-                <h4 class="text-success">Giá bán: @String.Format("{0:N0} VNĐ", Model.GiaBan)</h4>
+                <h4 class="text-success">Giá bán: @String.Format("{0:N0} VNĐ", Model.GiaBan ?? 0)</h4>
             }
 
             <p><strong>Tình trạng:</strong> @(Model.SoLuongTon > 0 ? "Còn hàng" : "Hết hàng")</p>
@@ -126,17 +126,17 @@
                                     <img src="~/Content/images/@sp.HinhAnh" class="card-img-top" alt="@sp.TenSP">
                                     <div class="card-body">
                                         <h5 class="card-title">@sp.TenSP</h5>
-                                        @if (sp.GiamGia != null && sp.GiamGia > 0)
+                                        @if (sp.GiamGia != null && sp.GiamGia > 0 && sp.GiaBan.HasValue)
                                         {
-                                            <span class="text-decoration-line-through text-muted">@sp.GiaBan.ToString("N0") đ</span><br />
-                                            decimal giaGiamSP = sp.GiaBan * (1 - (sp.GiamGia.Value / 100));
+                                            <span class="text-decoration-line-through text-muted">@sp.GiaBan.Value.ToString("N0") đ</span><br />
+                                            var giaGiamSP = sp.GiaBan.Value * (1 - (sp.GiamGia.Value / 100));
                                             <span class="text-danger fw-bold">
                                                 @giaGiamSP.ToString("N0") đ
                                             </span>
                                         }
                                         else
                                         {
-                                            <span class="text-success fw-bold">@sp.GiaBan.ToString("N0") đ</span>
+                                            <span class="text-success fw-bold">@((sp.GiaBan ?? 0).ToString("N0")) đ</span>
                                         }
                                     </div>
                                 </div>

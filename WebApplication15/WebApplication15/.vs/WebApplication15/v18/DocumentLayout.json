@@ -1,122 +1,248 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\",
+  "WorkspaceRootPath": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\nhaphang\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\nhaphang\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\nhaphang\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\nhaphang\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\danhgiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\danhgiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\xuatkho\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\xuatkho\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\thuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\thuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\xuatkho\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\xuatkho\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|c:\\users\\laptop\\onedrive\\m\u00E1y t\u00EDnh\\webapplication15\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|c:\\users\\laptop\\onedrive\\m\u00E1y t\u00EDnh\\webapplication15\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|c:\\users\\laptop\\onedrive\\m\u00E1y t\u00EDnh\\webapplication15\\webapplication15\\webapplication15\\webapplication15\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\userordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\userordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\db_skinfood.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\db_skinfood.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\lienhescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\lienhescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\content\\mycustomlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\content\\mycustomlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menuchinh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menuchinh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menuloai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menuloai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\db_skinfood.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\db_skinfood.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\chitietsp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\nhaphang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\nhaphang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\models\\db_skinfood.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\db_skinfood.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CAC_TINH_NANG_DA_BO_SUNG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CAC_TINH_NANG_DA_BO_SUNG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\models\\db_skinfood.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\db_skinfood.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\data\\authorizeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\data\\authorizeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\danhgiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\danhgiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\thuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\thuonghieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\userordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\userordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\content\\mycustomlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\content\\mycustomlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menuchinh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menuchinh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menuloai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menuloai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\home\\chitietsp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\home\\chitietsp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\views\\chat\\chatai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\views\\chat\\chatai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\views\\chat\\chatai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\webapplication15\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\webapplication15\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_Database_LienHe.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Update_Database_LienHe.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_Database_LienHe.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Update_Database_LienHe.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_LienHe_Table.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Update_LienHe_Table.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_LienHe_Table.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Update_LienHe_Table.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_CAP_NHAT_LIENHE.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HUONG_DAN_CAP_NHAT_LIENHE.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\TONG_KET_CAP_NHAT.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TONG_KET_CAP_NHAT.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-920927677\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\nhaphangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\controllers\\xuatkhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\controllers\\xuatkhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\areas\\admin\\views\\xuatkho\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\areas\\admin\\views\\xuatkho\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CHANGELOG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CHANGELOG.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_SUA_LOI_LOGIC.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BAO_CAO_SUA_LOI_LOGIC.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|d:\\web_hqtcsdl\\web\\webapplication15\\webapplication15\\webapplication15\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{263C40A0-CD9E-4D6B-922D-EC277C81E546}|WebApplication15\\WebApplication15.csproj|solutionrelative:webapplication15\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Stored_Procedures_ThongKeDoanhThu.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stored_Procedures_ThongKeDoanhThu.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Stored_Procedures_ThongKeDoanhThu.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stored_Procedures_ThongKeDoanhThu.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -126,7 +252,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -146,50 +272,473 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ThuongHieuController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
-              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:08:26.767Z",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAHAEAAAAAAAAAAAEwI8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T10:07:26.116Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DanhGiasController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
-              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAJUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:08:29.872Z",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Index.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Index.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Index.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAMUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:14:50.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TaiKhoanController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
-              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:08:14.275Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Create.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Create.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Create.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAKUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:15:10.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Create.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Create.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:15:33.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Details.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Details.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:16:19.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Details.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Details.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\NhapHang\\Details.cshtml",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAAAMUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:16:09.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAALIBAAAAAAAAAAAwwMcBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:08:30.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DB_SkinFood.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.edmx",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\DB_SkinFood.edmx",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.edmx [Diagram1]",
+              "RelativeToolTip": "WebApplication15\\Models\\DB_SkinFood.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-12-10T08:59:49.606Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountViewModels.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\AccountViewModels.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\AccountViewModels.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\AccountViewModels.cs",
+              "RelativeToolTip": "WebApplication15\\Models\\AccountViewModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T09:26:01.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Stored_Procedures_ThongKeDoanhThu.sql ",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Stored_Procedures_ThongKeDoanhThu.sql",
+              "RelativeDocumentMoniker": "Stored_Procedures_ThongKeDoanhThu.sql",
+              "ToolTip": "Stored_Procedures_ThongKeDoanhThu.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-12-10T10:09:37.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md",
+              "RelativeDocumentMoniker": "HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md",
+              "RelativeToolTip": "HUONG_DAN_XOA_SAN_PHAM_TRUNG_LAP.md",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAA0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T10:24:52.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Controllers\\ChatController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "WebApplication15\\Controllers\\ChatController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:59:28.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md",
+              "RelativeDocumentMoniker": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md",
+              "RelativeToolTip": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG_LAN_2.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T10:02:36.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md",
+              "RelativeDocumentMoniker": "HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md",
+              "RelativeToolTip": "HUONG_DAN_SUA_LOI_DANG_NHAP_ADMIN.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:43:36.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "BAO_CAO_SUA_LOI_LOGIC.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_SUA_LOI_LOGIC.md",
+              "RelativeDocumentMoniker": "BAO_CAO_SUA_LOI_LOGIC.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_SUA_LOI_LOGIC.md",
+              "RelativeToolTip": "BAO_CAO_SUA_LOI_LOGIC.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:37:08.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md",
+              "RelativeDocumentMoniker": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md",
+              "RelativeToolTip": "BAO_CAO_KIEM_TRA_TOAN_BO_HE_THONG.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:22:11.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:23:05.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "CHANGELOG.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CHANGELOG.md",
+              "RelativeDocumentMoniker": "CHANGELOG.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CHANGELOG.md",
+              "RelativeToolTip": "CHANGELOG.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:23:49.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Index.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Index.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\XuatKho\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:15:22.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CAC_TINH_NANG_DA_BO_SUNG.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CAC_TINH_NANG_DA_BO_SUNG.md",
+              "RelativeDocumentMoniker": "CAC_TINH_NANG_DA_BO_SUNG.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\CAC_TINH_NANG_DA_BO_SUNG.md",
+              "RelativeToolTip": "CAC_TINH_NANG_DA_BO_SUNG.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:17:09.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "XuatKhoController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\XuatKhoController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\XuatKhoController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\XuatKhoController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\XuatKhoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:14:36.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "NhapHangController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\NhapHangController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\NhapHangController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\NhapHangController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\NhapHangController.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAABRwKwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:14:22.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DB_SkinFood.Context.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.Context.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\DB_SkinFood.Context.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.Context.cs",
+              "RelativeToolTip": "WebApplication15\\Models\\DB_SkinFood.Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T09:02:47.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-920927677\\Index.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-920927677\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:39.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:40.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Index.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:40.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Create.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:41.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Details.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:41.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:10:11.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1104214987\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T09:09:40.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Update_LienHe_Table.sql ",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_LienHe_Table.sql",
+              "RelativeDocumentMoniker": "Update_LienHe_Table.sql",
+              "ToolTip": "Update_LienHe_Table.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-12-10T09:02:28.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "TONG_KET_CAP_NHAT.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\TONG_KET_CAP_NHAT.md",
+              "RelativeDocumentMoniker": "TONG_KET_CAP_NHAT.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\TONG_KET_CAP_NHAT.md",
+              "RelativeToolTip": "TONG_KET_CAP_NHAT.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:05:39.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "HUONG_DAN_CAP_NHAT_LIENHE.md",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_CAP_NHAT_LIENHE.md",
+              "RelativeDocumentMoniker": "HUONG_DAN_CAP_NHAT_LIENHE.md",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\HUONG_DAN_CAP_NHAT_LIENHE.md",
+              "RelativeToolTip": "HUONG_DAN_CAP_NHAT_LIENHE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-12-10T09:05:12.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AdminAreaRegistration.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T08:57:29.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthorizeAdmin.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Data\\AuthorizeAdmin.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Data\\AuthorizeAdmin.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Data\\AuthorizeAdmin.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Data\\AuthorizeAdmin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T08:57:26.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Update_Database_LienHe.sql ",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\Update_Database_LienHe.sql",
+              "RelativeDocumentMoniker": "Update_Database_LienHe.sql",
+              "ToolTip": "Update_Database_LienHe.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-12-10T08:57:55.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GioHang.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\GioHang.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\GioHang.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\GioHang.cs",
+              "RelativeToolTip": "WebApplication15\\Models\\GioHang.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAIAzwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:28:22.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "DonHangController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
               "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\DonHangController.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAiwBYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -198,24 +747,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAQwEIAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\TaiKhoanController.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:08:30.888Z",
+              "WhenOpened": "2025-12-05T14:08:14.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "LoaiSPController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
               "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\LoaiSPController.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -224,11 +773,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
+              "Title": "DanhGiasController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\DanhGiasController.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAJUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:08:29.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ThuongHieuController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
+              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\ThuongHieuController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:08:26.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "SanPhamController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
               "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\SanPhamController.cs",
               "ViewState": "AgIAAKcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -237,11 +812,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 21,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\HomeController.cs",
               "RelativeToolTip": "WebApplication15\\Controllers\\HomeController.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAAACYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -250,256 +825,198 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 22,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\UserController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\UserController.cs",
               "RelativeToolTip": "WebApplication15\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAOUBAAAAAAAAAEBVwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-05T14:19:36.103Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "UserOrdersViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserOrdersViewModel.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserOrdersViewModel.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Models\\UserOrdersViewModel.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserOrdersViewModel.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserOrdersViewModel.cs",
               "RelativeToolTip": "WebApplication15\\Models\\UserOrdersViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:13.671Z"
+              "WhenOpened": "2025-12-05T14:28:13.671Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "LienHe.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\LienHe.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\LienHe.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\LienHe.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\LienHe.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:15.85Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
               "Title": "GioHangController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\GioHangController.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\GioHangController.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Controllers\\GioHangController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\GioHangController.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Controllers\\GioHangController.cs",
               "RelativeToolTip": "WebApplication15\\Controllers\\GioHangController.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAAABkAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAACwCAAAAAAAAAABRwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-05T14:30:17.137Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 25,
               "Title": "HomeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\HomeViewModel.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\HomeViewModel.cs",
               "RelativeDocumentMoniker": "WebApplication15\\Models\\HomeViewModel.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\HomeViewModel.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\HomeViewModel.cs",
               "RelativeToolTip": "WebApplication15\\Models\\HomeViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:19.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GioHang.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\GioHang.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\GioHang.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\GioHang.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\GioHang.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:22.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\Cart.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\Cart.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\Cart.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:29.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserProfileViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserProfileViewModel.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\UserProfileViewModel.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserProfileViewModel.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\UserProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T14:28:11.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "LienHesController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LienHesController.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Areas\\Admin\\Controllers\\LienHesController.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Areas\\Admin\\Controllers\\LienHesController.cs",
-              "RelativeToolTip": "WebApplication15\\Areas\\Admin\\Controllers\\LienHesController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB4AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T09:48:27.265Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "DB_SkinFood.Context.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.Context.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\DB_SkinFood.Context.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.Context.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\DB_SkinFood.Context.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAEgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T13:09:08.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "BundleConfig.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\App_Start\\BundleConfig.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\App_Start\\BundleConfig.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\App_Start\\BundleConfig.cs",
-              "RelativeToolTip": "WebApplication15\\App_Start\\BundleConfig.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T13:56:30.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebApplication15\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebApplication15\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAALwAAAAAAAAAAAAiwMgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:53:59.357Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "_MenuDanhMuc.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
-              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
-              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:52:52.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "_MenuChinh.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
-              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
-              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:29:26.283Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "_MenuLoai.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
-              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
-              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:28:52.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MyCusTomLayOut.css",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Content\\MyCusTomLayOut.css",
-              "RelativeDocumentMoniker": "WebApplication15\\Content\\MyCusTomLayOut.css",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Content\\MyCusTomLayOut.css",
-              "RelativeToolTip": "WebApplication15\\Content\\MyCusTomLayOut.css",
-              "ViewState": "AgIAALgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-05T13:25:57.986Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "WebApplication15\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAJIBAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:21:51.747Z"
+              "WhenOpened": "2025-12-05T14:28:19.633Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
-              "Title": "DB_SkinFood.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.edmx",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\DB_SkinFood.edmx",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\DB_SkinFood.edmx [Diagram1]",
-              "RelativeToolTip": "WebApplication15\\Models\\DB_SkinFood.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-12-05T13:07:29.902Z"
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\Cart.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\Cart.cs",
+              "RelativeToolTip": "WebApplication15\\Models\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:28:29.485Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
+              "Title": "UserProfileViewModel.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserProfileViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\Models\\UserProfileViewModel.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\UserProfileViewModel.cs",
+              "RelativeToolTip": "WebApplication15\\Models\\UserProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T14:28:11.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "WebApplication15\\App_Start\\BundleConfig.cs",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "WebApplication15\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T13:56:30.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication15\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAMIAAAAAAAAAAIBZwMcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T13:53:59.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "_MenuDanhMuc.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
+              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuDanhMuc.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T13:52:52.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_MenuChinh.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
+              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuChinh.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T13:29:26.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_MenuLoai.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
+              "RelativeToolTip": "WebApplication15\\Views\\Home\\_MenuLoai.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T13:28:52.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MyCusTomLayOut.css",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Content\\MyCusTomLayOut.css",
+              "RelativeDocumentMoniker": "WebApplication15\\Content\\MyCusTomLayOut.css",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Content\\MyCusTomLayOut.css",
+              "RelativeToolTip": "WebApplication15\\Content\\MyCusTomLayOut.css",
+              "ViewState": "AgIAALgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-05T13:25:57.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication15\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAJIBAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-05T13:21:51.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "ChatAI.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Chat\\ChatAI.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Chat\\ChatAI.cshtml",
               "RelativeDocumentMoniker": "WebApplication15\\Views\\Chat\\ChatAI.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Chat\\ChatAI.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Chat\\ChatAI.cshtml",
               "RelativeToolTip": "WebApplication15\\Views\\Chat\\ChatAI.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T09:32:56.328Z"
+              "WhenOpened": "2025-12-05T09:32:56.328Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "ChiTietSP.cshtml",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
+              "DocumentMoniker": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
               "RelativeDocumentMoniker": "WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
+              "ToolTip": "D:\\WEB_HQTCSDL\\web\\WebApplication15\\WebApplication15\\WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
               "RelativeToolTip": "WebApplication15\\Views\\Home\\ChiTietSP.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T09:28:39.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "AccountViewModels.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\AccountViewModels.cs",
-              "RelativeDocumentMoniker": "WebApplication15\\Models\\AccountViewModels.cs",
-              "ToolTip": "C:\\Users\\laptop\\OneDrive\\M\u00E1y t\u00EDnh\\WebApplication15\\WebApplication15\\WebApplication15\\WebApplication15\\Models\\AccountViewModels.cs",
-              "RelativeToolTip": "WebApplication15\\Models\\AccountViewModels.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T09:26:01.578Z"
+              "WhenOpened": "2025-12-05T09:28:39.4Z",
+              "EditorCaption": ""
             }
           ]
         }

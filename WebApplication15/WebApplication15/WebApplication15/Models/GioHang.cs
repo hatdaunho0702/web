@@ -21,7 +21,22 @@ namespace WebApplication15.Models
             var sp = DB.SanPhams.Single(s => s.MaSP == maSP);
             TenSP = sp.TenSP;
             AnhBia = sp.HinhAnh;
-            GiaBan = double.Parse(sp.GiaBan.ToString());
+            
+            // Sửa lỗi: Phải tính giá sau giảm giá
+            decimal giaGoc = sp.GiaBan ?? 0;
+            
+            if (sp.GiamGia != null && sp.GiamGia > 0)
+            {
+                // Áp dụng giảm giá
+                decimal giaSauGiam = giaGoc * (1 - (sp.GiamGia.Value / 100));
+                GiaBan = double.Parse(giaSauGiam.ToString());
+            }
+            else
+            {
+                // Không có giảm giá
+                GiaBan = double.Parse(giaGoc.ToString());
+            }
+            
             SoLuong = 1;
         }
     }
