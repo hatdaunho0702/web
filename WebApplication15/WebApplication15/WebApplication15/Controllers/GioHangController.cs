@@ -251,13 +251,15 @@ namespace WebApplication15.Controllers
                         DonGia = (decimal)item.GiaBan
                     });
 
-                    // Cập nhật số lượng tồn kho
+                    // KHÔNG CẬP NHẬT TỒN KHO Ở ĐÂY (Theo yêu cầu mới: Chỉ trừ khi thanh toán)
+                    /*
                     SanPham sp = data.SanPhams.FirstOrDefault(s => s.MaSP == item.MaSP);
                     if (sp != null)
                     {
                         sp.SoLuongTon -= item.SoLuong;
                         data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
                     }
+                    */
                 }
 
                 data.SaveChanges();
@@ -324,12 +326,34 @@ namespace WebApplication15.Controllers
                     maDH = (int)Session["CurrentOrder"];
                 }
 
-                var hoaDon = data.DonHangs.FirstOrDefault(x => x.MaDH == maDH);
+                var hoaDon = data.DonHangs.Include("ChiTietDonHangs").FirstOrDefault(x => x.MaDH == maDH);
 
                 if (hoaDon == null)
                 {
                     System.Diagnostics.Debug.WriteLine($"❌ ThanhToanCOD: Không tìm thấy đơn hàng MaDH={maDH}");
                     return RedirectToAction("Index", "GioHang");
+                }
+
+                // Kiểm tra tồn kho trước khi trừ
+                foreach (var item in hoaDon.ChiTietDonHangs)
+                {
+                    var sp = data.SanPhams.Find(item.MaSP);
+                    if (sp == null || sp.SoLuongTon < item.SoLuong)
+                    {
+                        TempData["Error"] = $"Sản phẩm {(sp?.TenSP ?? "Unknown")} không đủ số lượng tồn kho!";
+                        return RedirectToAction("Index", "GioHang");
+                    }
+                }
+
+                // Trừ tồn kho
+                foreach (var item in hoaDon.ChiTietDonHangs)
+                {
+                    var sp = data.SanPhams.Find(item.MaSP);
+                    if (sp != null)
+                    {
+                        sp.SoLuongTon -= item.SoLuong;
+                        data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                    }
                 }
 
                 // Cập nhật trạng thái thanh toán
@@ -445,10 +469,32 @@ namespace WebApplication15.Controllers
                     maDH = (int)Session["CurrentOrder"];
                 }
 
-                var hoaDon = data.DonHangs.FirstOrDefault(x => x.MaDH == maDH);
+                var hoaDon = data.DonHangs.Include("ChiTietDonHangs").FirstOrDefault(x => x.MaDH == maDH);
 
                 if (hoaDon != null)
                 {
+                    // Kiểm tra tồn kho trước khi trừ
+                    foreach (var item in hoaDon.ChiTietDonHangs)
+                    {
+                        var sp = data.SanPhams.Find(item.MaSP);
+                        if (sp == null || sp.SoLuongTon < item.SoLuong)
+                        {
+                            TempData["Error"] = $"Sản phẩm {(sp?.TenSP ?? "Unknown")} không đủ số lượng tồn kho!";
+                            return RedirectToAction("Index", "GioHang");
+                        }
+                    }
+
+                    // Trừ tồn kho
+                    foreach (var item in hoaDon.ChiTietDonHangs)
+                    {
+                        var sp = data.SanPhams.Find(item.MaSP);
+                        if (sp != null)
+                        {
+                            sp.SoLuongTon -= item.SoLuong;
+                            data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                        }
+                    }
+
                     // Cập nhật trạng thái
                     hoaDon.TrangThaiThanhToan = "Đã thanh toán";
                     hoaDon.NgayThanhToan = DateTime.Now;
@@ -491,7 +537,7 @@ namespace WebApplication15.Controllers
             {
                 ViewBag.MaDH = maDH.Value;
 
-                var hoaDon = data.DonHangs.FirstOrDefault(x => x.MaDH == maDH);
+                var hoaDon = data.DonHangs.Include("ChiTietDonHangs").FirstOrDefault(x => x.MaDH == maDH);
                 
                 if (hoaDon != null)
                 {
@@ -499,13 +545,45 @@ namespace WebApplication15.Controllers
                     data.Entry(hoaDon).Reload();
                     
                     // Nếu chưa có trạng thái thanh toán, đặt thành "Đã thanh toán"
-                    if (string.IsNullOrEmpty(hoaDon.TrangThaiThanhToan))
+                    if (string.IsNullOrEmpty(hoaDon.TrangThaiThanhToan) || hoaDon.TrangThaiThanhToan != "Đã thanh toán")
                     {
-                        hoaDon.TrangThaiThanhToan = "Đã thanh toán";
-                        hoaDon.NgayThanhToan = DateTime.Now;
-                        data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
-                        data.SaveChanges();
-                        System.Diagnostics.Debug.WriteLine($"✅ PaymentSuccess: Cập nhật trạng thái cho maDH={maDH}");
+                        // Kiểm tra xem đã trừ kho chưa? Nếu chưa thì trừ
+                        // (Logic này hơi rủi ro nếu gọi nhiều lần, nhưng PaymentSuccess thường là trang cuối)
+                        // Tốt nhất là chỉ cập nhật trạng thái nếu nó chưa phải là "Đã thanh toán"
+                        
+                        if (hoaDon.TrangThaiThanhToan != "Đã thanh toán")
+                        {
+                             // Kiểm tra tồn kho trước khi trừ
+                            bool enoughStock = true;
+                            foreach (var item in hoaDon.ChiTietDonHangs)
+                            {
+                                var sp = data.SanPhams.Find(item.MaSP);
+                                if (sp == null || sp.SoLuongTon < item.SoLuong)
+                                {
+                                    enoughStock = false;
+                                    break;
+                                }
+                            }
+
+                            if (enoughStock)
+                            {
+                                foreach (var item in hoaDon.ChiTietDonHangs)
+                                {
+                                    var sp = data.SanPhams.Find(item.MaSP);
+                                    if (sp != null)
+                                    {
+                                        sp.SoLuongTon -= item.SoLuong;
+                                        data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                                    }
+                                }
+
+                                hoaDon.TrangThaiThanhToan = "Đã thanh toán";
+                                hoaDon.NgayThanhToan = DateTime.Now;
+                                data.Entry(hoaDon).State = System.Data.Entity.EntityState.Modified;
+                                data.SaveChanges();
+                                System.Diagnostics.Debug.WriteLine($"✅ PaymentSuccess: Cập nhật trạng thái và trừ kho cho maDH={maDH}");
+                            }
+                        }
                     }
                     else
                     {

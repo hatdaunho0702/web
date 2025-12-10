@@ -91,6 +91,45 @@ namespace WebApplication15.Controllers
                 Session["Role"] = user.VaiTro;
                 Session["UserName"] = nd.HoTen;
 
+                // Khôi phục giỏ hàng từ đơn hàng "Chờ thanh toán" gần nhất
+                var pendingOrder = data.DonHangs
+                    .Where(d => d.MaND == user.MaND && 
+                               (d.TrangThaiThanhToan.Contains("Chờ thanh toán") || 
+                                d.TrangThaiThanhToan.Contains("Chưa thanh toán")))
+                    .OrderByDescending(d => d.NgayDat)
+                    .FirstOrDefault();
+
+                if (pendingOrder != null)
+                {
+                    try
+                    {
+                        Cart cart = new Cart();
+                        var details = data.ChiTietDonHangs.Where(c => c.MaDH == pendingOrder.MaDH).ToList();
+
+                        foreach (var dt in details)
+                        {
+                            // Kiểm tra sản phẩm còn tồn tại không
+                            var spExists = data.SanPhams.Any(s => s.MaSP == dt.MaSP);
+                            if (spExists)
+                            {
+                                var item = new GioHang(dt.MaSP);
+                                item.SoLuong = dt.SoLuong ?? 1;
+                                cart.list.Add(item);
+                            }
+                        }
+
+                        if (cart.list.Count > 0)
+                        {
+                            Session["Cart"] = cart;
+                            Session["CurrentOrder"] = pendingOrder.MaDH;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Error restoring cart: " + ex.Message);
+                    }
+                }
+
                 // Chuyển hướng theo vai trò
                 if (user.VaiTro == "Admin")
                 {
@@ -485,6 +524,63 @@ namespace WebApplication15.Controllers
                 System.Diagnostics.Debug.WriteLine($"ChangePassword Error: {ex.Message}");
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult HuyDonHang(int id)
+        {
+            if (Session["User"] == null)
+                return RedirectToAction("Login", "User");
+
+            TaiKhoan tk = Session["User"] as TaiKhoan;
+            
+            var dh = data.DonHangs.FirstOrDefault(d => d.MaDH == id && d.MaND == tk.MaND);
+
+            if (dh == null)
+            {
+                TempData["Error"] = "Không tìm thấy đơn hàng!";
+                return RedirectToAction("DonHang");
+            }
+
+            // Chuẩn hóa chuỗi để so sánh
+            string status = dh.TrangThaiThanhToan?.Trim().ToLower() ?? "";
+
+            // Chỉ cho phép hủy khi đang chờ thanh toán hoặc chờ xác nhận
+            if (status.Contains("chờ thanh toán") || status.Contains("đang xác nhận") || status.Contains("chưa thanh toán"))
+            {
+                try 
+                {
+                    // Hoàn lại số lượng tồn kho
+                    var chiTiet = data.ChiTietDonHangs.Where(c => c.MaDH == id).ToList();
+                    foreach (var item in chiTiet)
+                    {
+                        var sp = data.SanPhams.FirstOrDefault(s => s.MaSP == item.MaSP);
+                        if (sp != null)
+                        {
+                            sp.SoLuongTon = (sp.SoLuongTon ?? 0) + (item.SoLuong ?? 0);
+                            // Đánh dấu sp đã thay đổi
+                            data.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                        }
+                    }
+
+                    // Cập nhật trạng thái đơn hàng
+                    dh.TrangThaiThanhToan = "Đã hủy";
+                    data.Entry(dh).State = System.Data.Entity.EntityState.Modified;
+                    
+                    data.SaveChanges();
+                    TempData["Success"] = "Đã hủy đơn hàng thành công!";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Error"] = "Lỗi khi hủy đơn hàng: " + ex.Message;
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Không thể hủy đơn hàng này (chỉ hủy được khi đang chờ thanh toán/xác nhận)!";
+            }
+
+            return RedirectToAction("DonHang");
         }
     }
 }

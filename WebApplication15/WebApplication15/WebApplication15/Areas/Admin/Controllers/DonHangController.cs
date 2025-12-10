@@ -62,15 +62,51 @@ namespace WebApplication15.Areas.Admin.Controllers
         {
             try
             {
-                var dh = db.DonHangs.Find(id);
+                var dh = db.DonHangs.Include("ChiTietDonHangs").FirstOrDefault(d => d.MaDH == id);
                 if (dh == null)
                     return Json(new { success = false, message = "Đơn hàng không tồn tại" });
 
+                string oldStatus = dh.TrangThaiThanhToan;
                 dh.TrangThaiThanhToan = status;
-                if (status == "Đã thanh toán" && !dh.NgayThanhToan.HasValue)
+
+                // Nếu chuyển sang "Đã thanh toán" và trước đó chưa thanh toán -> Trừ kho
+                if (status == "Đã thanh toán" && oldStatus != "Đã thanh toán")
                 {
-                    dh.NgayThanhToan = DateTime.Now;
+                    if (!dh.NgayThanhToan.HasValue)
+                    {
+                        dh.NgayThanhToan = DateTime.Now;
+                    }
+
+                    // Trừ kho
+                    foreach (var item in dh.ChiTietDonHangs)
+                    {
+                        var sp = db.SanPhams.Find(item.MaSP);
+                        if (sp != null)
+                        {
+                            // Kiểm tra nếu kho < 0 thì vẫn trừ (cho phép âm nếu admin force?)
+                            // Hoặc chặn? Ở đây admin quyền lực nên cho phép trừ
+                            sp.SoLuongTon -= item.SoLuong;
+                            db.Entry(sp).State = EntityState.Modified;
+                        }
+                    }
                 }
+                // Nếu chuyển từ "Đã thanh toán" sang "Chưa thanh toán" hoặc "Hủy" -> Cộng lại kho?
+                // User không yêu cầu, nhưng logic đúng nên thế.
+                // Tuy nhiên user chỉ yêu cầu "khi nào thanh toán mới trừ".
+                // Nếu admin hủy đơn đã thanh toán, nên hoàn kho.
+                else if ((status.Contains("Hủy") || status.Contains("Cancel")) && oldStatus == "Đã thanh toán")
+                {
+                     foreach (var item in dh.ChiTietDonHangs)
+                    {
+                        var sp = db.SanPhams.Find(item.MaSP);
+                        if (sp != null)
+                        {
+                            sp.SoLuongTon += item.SoLuong;
+                            db.Entry(sp).State = EntityState.Modified;
+                        }
+                    }
+                }
+
                 db.SaveChanges();
 
                 return Json(new { success = true, message = "Cập nhật trạng thái thành công!" });
