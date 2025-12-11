@@ -230,8 +230,8 @@
         <div class="row">
             @foreach (var sp in Model)
             {
-                var giaSauGiam = sp.GiaBan.Value * (1 - (sp.GiamGia.Value / 100));
-                var tietKiem = sp.GiaBan.Value - giaSauGiam;
+                var giaSauGiam = sp.GiaBan.GetValueOrDefault() * (1 - (sp.GiamGia.GetValueOrDefault() / 100));
+                var tietKiem = sp.GiaBan.GetValueOrDefault() - giaSauGiam;
                 
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
                     <a href="@Url.Action("ChiTietSP", "Home", new { MaSP = sp.MaSP })"
@@ -250,7 +250,7 @@
                                 <h6>@sp.TenSP</h6>
                                 
                                 <div class="price-section">
-                                    <span class="original-price">@sp.GiaBan.Value.ToString("N0") đ</span>
+                                    <span class="original-price">@sp.GiaBan.GetValueOrDefault().ToString("N0") đ</span>
                                     <span class="sale-price">@giaSauGiam.ToString("N0") đ</span>
                                     <span class="savings">Tiết kiệm @tietKiem.ToString("N0") đ</span>
                                 </div>

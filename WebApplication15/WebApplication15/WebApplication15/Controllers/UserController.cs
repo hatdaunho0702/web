@@ -210,12 +210,38 @@ namespace WebApplication15.Controllers
                     return View("Register");
                 }
 
+                // Kiểm tra số điện thoại đã tồn tại chưa (nếu có nhập)
+                if (!string.IsNullOrEmpty(sdt))
+                {
+                    var checkPhone = data.NguoiDungs.FirstOrDefault(n => n.SoDienThoai == sdt);
+                    if (checkPhone != null)
+                    {
+                        ViewBag.Error = "Số điện thoại này đã được sử dụng!";
+                        return View("Register");
+                    }
+                }
+
                 // Parse ngày sinh
                 DateTime ngaysinh = DateTime.Now.AddYears(-18); // Default
                 if (!string.IsNullOrEmpty(form["NgaySinh"]))
                 {
-                    DateTime.TryParse(form["NgaySinh"], out ngaysinh);
+                    DateTime tempDate;
+                    if (DateTime.TryParse(form["NgaySinh"], out tempDate))
+                    {
+                        ngaysinh = tempDate;
+                    }
                 }
+
+                // Đảm bảo ngày sinh nằm trong khoảng cho phép của SQL
+                if (ngaysinh < System.Data.SqlTypes.SqlDateTime.MinValue.Value)
+                {
+                    ngaysinh = System.Data.SqlTypes.SqlDateTime.MinValue.Value;
+                }
+
+                // Cắt chuỗi nếu quá dài để tránh lỗi DB
+                if (hoten.Length > 100) hoten = hoten.Substring(0, 100);
+                if (!string.IsNullOrEmpty(diachi) && diachi.Length > 255) diachi = diachi.Substring(0, 255);
+                if (!string.IsNullOrEmpty(sdt) && sdt.Length > 20) sdt = sdt.Substring(0, 20);
 
                 // Tạo bản ghi NguoiDung
                 NguoiDung nd = new NguoiDung
@@ -249,10 +275,28 @@ namespace WebApplication15.Controllers
                 TempData["Success"] = "Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.";
                 return RedirectToAction("Login", "User");
             }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        sb.AppendLine($"- {validationError.ErrorMessage}");
+                    }
+                }
+                ViewBag.Error = "Lỗi xác thực dữ liệu: " + sb.ToString();
+                return View("Register");
+            }
             catch (Exception ex)
             {
-                ViewBag.Error = "Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại!";
-                System.Diagnostics.Debug.WriteLine($"Register Error: {ex.Message}");
+                string errorMsg = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    errorMsg += " (" + ex.InnerException.Message + ")";
+                }
+                ViewBag.Error = "Lỗi đăng ký: " + errorMsg;
+                System.Diagnostics.Debug.WriteLine($"Register Error: {ex}");
                 return View("Register");
             }
         }
@@ -324,6 +368,7 @@ namespace WebApplication15.Controllers
                     return RedirectToAction("Login", "User");
 
                 TaiKhoan tk = Session["User"] as TaiKhoan;
+                // Reload người dùng từ database để có dữ liệu mới nhất
                 NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
 
                 if (nd == null)
@@ -359,9 +404,19 @@ namespace WebApplication15.Controllers
                     DateTime ngaysinh;
                     if (DateTime.TryParse(form["NgaySinh"], out ngaysinh))
                     {
+                        // Đảm bảo ngày sinh nằm trong khoảng cho phép của SQL
+                        if (ngaysinh < System.Data.SqlTypes.SqlDateTime.MinValue.Value)
+                        {
+                            ngaysinh = System.Data.SqlTypes.SqlDateTime.MinValue.Value;
+                        }
                         nd.NgaySinh = ngaysinh;
                     }
                 }
+
+                // Cắt chuỗi nếu quá dài để tránh lỗi DB
+                if (nd.HoTen.Length > 100) nd.HoTen = nd.HoTen.Substring(0, 100);
+                if (!string.IsNullOrEmpty(nd.DiaChi) && nd.DiaChi.Length > 255) nd.DiaChi = nd.DiaChi.Substring(0, 255);
+                if (!string.IsNullOrEmpty(nd.SoDienThoai) && nd.SoDienThoai.Length > 20) nd.SoDienThoai = nd.SoDienThoai.Substring(0, 20);
 
                 // Lưu vào database
                 data.Entry(nd).State = System.Data.Entity.EntityState.Modified;
@@ -374,9 +429,26 @@ namespace WebApplication15.Controllers
                 TempData["Success"] = "Cập nhật thông tin thành công!";
                 return RedirectToAction("Profile", "User");
             }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        sb.AppendLine($"- {validationError.ErrorMessage}");
+                    }
+                }
+                ViewBag.Error = "Lỗi xác thực dữ liệu: " + sb.ToString();
+                
+                TaiKhoan tk = Session["User"] as TaiKhoan;
+                NguoiDung nd = data.NguoiDungs.FirstOrDefault(n => n.MaND == tk.MaND);
+                var model = new UserProfileViewModel { TaiKhoan = tk, NguoiDung = nd };
+                return View(model);
+            }
             catch (Exception ex)
             {
-                ViewBag.Error = "Đã xảy ra lỗi trong quá trình cập nhật. Vui lòng thử lại!";
+                ViewBag.Error = "Đã xảy ra lỗi trong quá trình cập nhật: " + ex.Message;
                 System.Diagnostics.Debug.WriteLine($"EditProfile Error: {ex.Message}");
                 
                 TaiKhoan tk = Session["User"] as TaiKhoan;
